@@ -62,7 +62,7 @@ Vector3.dot = function(vector1, vector2) {
 
 Vector3.angleBetween = function(vector1, vector2) {
     //A . B = |A||B|cos t, t = acosA.B/|A||B|
-    return Math.acos(Vector3.dot(vector1, vector2) / (vector1.magnitude() * vector2.magnitude()));
+    return Math.acos(Vector3.dot(vector1, vector2) / (vector1.magnitude() * vector2.magnitude())) * 180 / Math.PI;
 };
 
 Vector3.getAngleCurve = function(vector1, vector2) {
