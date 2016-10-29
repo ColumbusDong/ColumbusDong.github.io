@@ -17,6 +17,9 @@ sceneManager.scene.add(gridHelper);
 
 var t = 0;
 
+
+
+
 var render = function () {
     requestAnimationFrame( render );
     sceneManager.renderer.render(sceneManager.scene, sceneManager.camera);
