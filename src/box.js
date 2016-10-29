@@ -22,14 +22,21 @@ controls.target.set(0, 0, 0);
 
 //Grid
 var size = 100;
-var step = size;
+var step = size*.1;
+//XY
 var gridXZ = new THREE.GridHelper(size, step);
 
+//XZ
 var gridXY = new THREE.GridHelper(size, step);
 gridXY.rotation.x = Math.PI/2;
 
+//YZ
 var gridYZ = new THREE.GridHelper(size, step);
 gridYZ.rotation.z = Math.PI/2;
+
+//Axis
+var axisHelp = new THREE.AxisHelper(size);
+scene.add(axisHelp);
 
 scene.add(gridXZ);
 scene.add(gridXY);
