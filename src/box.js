@@ -34,14 +34,14 @@ controls.target.set(0, 0, 0);
 
 
 //XY
-var gridXY = new THREE.GridHelper(size, step*2);
+var gridXY = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
 
 //XZ
-var gridXZ = new THREE.GridHelper(size, step*2);
-gridXY.rotation.x = Math.PI/2;
+var gridXZ = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
+gridXZ.rotation.x = Math.PI/2;
 
 //YZ
-var gridYZ = new THREE.GridHelper(size, step*2);
+var gridYZ = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
 gridYZ.rotation.z = Math.PI/2;
 
 //Add Grid
@@ -86,6 +86,19 @@ scene.add(yAxes);
 var zAxes = makeCylinder(1, 2*size, 0x00FF00);
 scene.add(zAxes);
 
+//Add Axis Labels
+var xLabel = makeTextSprite("X-Axis");
+xLabel.position.set(size, 0, 0);
+scene.add(xLabel);
+
+var zLabel = makeTextSprite("Z-Axis");
+zLabel.position.set(0, size, 0);
+scene.add(zLabel);
+
+var yLabel = makeTextSprite("Y-Axis");
+yLabel.position.set(0, 0, size);
+scene.add(yLabel);
+
 //Make Cube Rotate
 var render = function () {
     requestAnimationFrame( render );
@@ -97,13 +110,3 @@ var render = function () {
 };
 
 render();
-
-//Makes Cylinder given Radius, Height, and Color
-function makeCylinder(rad, height, col)
-{
-    var geometry = new THREE.CylinderGeometry(rad, rad, height, 360);
-    var material = new THREE.MeshBasicMaterial({color: col});
-    var axes = new THREE.Mesh(geometry, material);
-
-    return(axes);
-}
