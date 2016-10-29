@@ -5,31 +5,28 @@ body {
 .grid {
     position:  absolute;
     top: 0;
-    left: 30%;
+    left: 35%;
     background-color: #ffffff;
     display: block;
-    width: 70%;
+    width: 65%;
     height: 100%;
     z-index: 1;
 }
 
-.gui{
+#guiId{
     position: absolute;
     top:0;
     left: 0;
-    width:30%;
+    width:35%;
     height: 100%;
-    background-color: #B3E5FC;
-    padding-left: 10px;
+    background-color: #ffffff;
+    margin-left: 10px;
+    padding: 0;
 }
 
 .tF{
-    width: 5%;
+    width: 20%;
     margin: 5px;
-}
-
-#guiId{
-    margin-left: 10px;
 }
 
 #btn1{
@@ -46,3 +43,24 @@ body {
     margin: 5px;
 
 }
+
+#addC{
+    margin-left:115%;
+    width: 100px;
+    height:36px;
+
+}
+
+#addA{
+    margin-left:115%;
+    width: 100px;
+    height:36px;
+}
+
+.add{
+    margin: 5px;
+
+
+}
+
+

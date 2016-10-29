@@ -11,6 +11,8 @@
 <body>
 
    <div id="guiId">
+       <!-- Entering components -->
+       <div class="add">
        <!-- The textfield x -->
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
            <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
@@ -25,20 +27,61 @@
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
            <input class="mdl-textfield__input" type="text" id="zC">
            <label class="mdl-textfield__label" for="zC">z</label>
+           <!-- Button Add Component-->
+           <div>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addC">
+                   Add
+               </button>
+           </div>
        </div>
-       <!-- Button 1-->
-       <div class="btnW">
+
+       </div>
+
+       <!-- Entering angles -->
+       <div class="add">
+           <!-- The textfield r -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="rA">
+               <label class="mdl-textfield__label" for="rA">r</label>
+           </div>
+           <!-- The textfield θ -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" id="tA">
+               <label class="mdl-textfield__label" for="tA">θ</label>
+           </div>
+           <!-- The textfield Φ -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" id="pA">
+               <label class="mdl-textfield__label" for="pA">Φ</label>
+               <!-- Button Add Component-->
+               <div>
+                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addA">
+                       Add
+                   </button>
+               </div>
+           </div>
+
+       </div>
+
+
+        <!-- Select One Vector -->
+        <div>
+            Select One Vector:
+            <hr>
+       <!-- Button _Remove-->
+       <div>
        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn1">
-           Button1
+           Remove
        </button>
        </div>
        <!-- Button -->
-       <div class="btnW">
+       <div>
            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn2">
-               Button2
+               Mutliply
            </button>
        </div>
     </div>
+   </div>
     <div  class="grid" id="gridId">
         <!-- Grid -->
     </div >
