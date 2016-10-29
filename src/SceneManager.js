@@ -14,16 +14,22 @@ var SceneManager = function() {
 };
 
 SceneManager.prototype.add = function(direction, color, start) {
-    color = color || 0x0;
-    start = start || {
-            x: 0,
-            y: 0,
-            z: 0
-        };
+    var vector;
+
+    if(direction instanceof Vector3) {
+        vector = direction;
+        vector.id = this.count;
+    } else {
+        color = color || 0x0;
+        start = start || {
+                x: 0,
+                y: 0,
+                z: 0
+            };
 
 
-
-    var vector = new Vector3(direction, color, start, this.count);
+        vector = new Vector3(direction, color, start, this.count);
+    }
     this.scene.add(vector.arrow);
     this.list.push(vector);
     this.count++;
@@ -41,5 +47,10 @@ SceneManager.prototype.remove = function(id) {
     return false;
 };
 
-
-
+SceneManager.prototype.get = function(id) {
+    for(var i = 0; i < this.list.length; i++) {
+        if(this.list[i].id === id) {
+            return this.list[i];
+        }
+    }
+};
