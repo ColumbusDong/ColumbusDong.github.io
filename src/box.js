@@ -6,7 +6,7 @@ var camera = new THREE.PerspectiveCamera( 75, width/height, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 renderer.setClearColor (0xFFFFFF, 1);
-document.body.appendChild( renderer.domElement );
+document.getElementById("gridId").appendChild( renderer.domElement );
 
 //Rotating Cube
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );

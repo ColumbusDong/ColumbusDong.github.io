@@ -2,8 +2,23 @@ body {
     margin: 0;
 }
 
-canvas {
+.grid {
+    position:  absolute;
+    top: 0;
+    left: 30%;
+    background-color: #ffffff;
     display: block;
-    width: 100%;
+    width: 70%;
     height: 100%;
+    z-index: 1;
+}
+
+.gui{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:30%;
+    height: 100%;
+    background-color: aqua;
+
 }
