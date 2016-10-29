@@ -1,4 +1,6 @@
 body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
     margin: 0;
 }
 
@@ -24,24 +26,39 @@ body {
     padding: 0;
 }
 
+/* Text field properties for the fields for add */
 .tF{
     width: 20%;
+    height: 20%;
     margin: 5px;
 }
+/* Text field properties for Scalar entry */
+.tfS{
+    width: 30%;
+    margin-left: 5%;
+    top: -5px;
+}
 
-#btn1{
-    width: 100px;
+.oneVPos{
+    width: 120px;
     float: left;
     height: 36px;
     margin: 5px;
-
 }
-#btn2{
-    width: 100px;
-    float: left;
-    height: 36px;
-    margin: 5px;
 
+.twoVPos{
+    width: 75px;
+    height: 40px;
+    float: left;
+    margin: 5px;
+}
+
+.viewPos{
+    width: 100px;
+    height: 70px;
+    float: left;
+    margin: 3px;
+    padding: 0;
 }
 
 #addC{
@@ -57,10 +74,14 @@ body {
     height:36px;
 }
 
-.add{
+.margin{
     margin: 5px;
 
 
+}
+
+.white{
+    color: #ffffff;
 }
 
 
