@@ -42,8 +42,8 @@ SceneManager.prototype.remove = function(id) {
         if(this.list[i].id === id) {
             var vector = this.list.splice(i, 1)[0];
             this.scene.remove(vector.arrow);
-            for(var angle in vector.angles) {
-                this.scene.remove(angle);
+            for(var i = 0; i < vector.angles.length; i++) {
+                this.scene.remove(vector.angles[i]);
             }
             return true;
         }
@@ -69,14 +69,13 @@ SceneManager.prototype.drawAngle = function(id1, id2) {
 
 
 
-    var curve = Vector3.angleBetween(vector1.direction.clone(), vector2.direction.clone());
+    var curve = Vector3.getAngleCurve(vector1, vector2);
     var lineGeometry = new THREE.Geometry();
     lineGeometry.vertices = curve.getPoints(100);
     lineGeometry.computeLineDistances();
     var lineMaterial = new THREE.LineBasicMaterial();
     lineMaterial.color = (typeof(color) === "undefined") ? new THREE.Color(0xFF0000) : new THREE.Color(color);
     var line = new THREE.Line( lineGeometry, lineMaterial );
-
     vector1.angles.push(line);
     vector2.angles.push(line);
 

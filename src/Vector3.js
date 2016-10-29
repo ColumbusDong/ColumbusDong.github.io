@@ -65,7 +65,9 @@ Vector3.angleBetween = function(vector1, vector2) {
     return Math.acos(Vector3.dot(vector1, vector2) / (vector1.magnitude() * vector2.magnitude()));
 };
 
-Vector3.prototype.getAngleCurve = function(vector1, vector2) {
+Vector3.getAngleCurve = function(vector1, vector2) {
+    var vector1 = vector1.direction.clone();
+    var vector2 = vector2.direction.clone();
     var greatCircleFunction = function(P, Q) {
         var angle = P.angleTo(Q);
         return function(t)
@@ -87,6 +89,6 @@ Vector3.prototype.getAngleCurve = function(vector1, vector2) {
     var radius = Math.min(vector1.length(), vector2.length()) * 0.75;
 
 
-    return createSphereArc(vector1.clone().normalize().multiplyScalar(radius),
-        vector2.clone.normalize().multiplyScalar(radius));
+    return createSphereArc(vector1.normalize().multiplyScalar(radius),
+        vector2.normalize().multiplyScalar(radius));
 }
