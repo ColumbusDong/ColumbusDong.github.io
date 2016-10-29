@@ -1,36 +1,15 @@
-var Vector3 = function(x, y, z, color, id) {
-    this.x = x;
-    this.y = y;
-    this.z = z;
+var Vector3 = function(vector, color, start, id) {
+    this.vector = vector;
     this.color = color;
+    this.start = start;
+
     this.id = id;
 
-    this.THREEVector = new THREE.Vector3(x, y, z);
-};
-
-
-var VectorList = function() {
-    this.list = [];
-    this.count = 0;
-};
-
-VectorList.prototype.add = function(x, y, z, color) {
-    color = color || 0x0;
-
-    var vector = new Vector3(x, y, z, color, count);
-    this.list.push(vector);
-    this.count++;
-};
-
-VectorList.prototype.remove = function(id) {
-  for(var i = 0; i < this.list.length; i++) {
-      if(this.list[i].id === id) {
-          this.list.splice(i, 1);
-          return true;
-      }
-  }
-
-  return false;
-};
-
+    var to = new THREE.Vector3(vector.x, vector.y, vector.z);
+    var from = new THREE.Vector3(start.x, start.y, start.z);
+    var direction = to.clone().sub(from);
+    var length = direction.length();
+    var arrowHelper = new THREE.ArrowHelper(direction.normalize(), from, length, color);
+    this.arrow = arrowHelper;
+}
 
