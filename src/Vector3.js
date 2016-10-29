@@ -14,8 +14,23 @@ var Vector3 = function(vector, color, start, id) {
     this.angles = [];
 
 
-
 };
+
+Vector3.prototype.set = function(newVector, newColor, newStart) {
+    this.vector = newVector;
+    this.color = newColor || this.color;
+    this.start = (typeof newStart === "undefined") ? this.start : newStart;
+
+    this.direction = new THREE.Vector3(this.vector.x, this.vector.y, this.vector.z);
+    var length = this.direction.length();
+    this.arrow.setDirection(this.direction.clone().normalize());
+
+    this.arrow.setLength(length);
+    this.arrow.position.set(this.start.x, this.start.y, this.start.z);
+
+
+
+}
 
 Vector3.prototype.magnitude = function() {
     return Math.sqrt(this.vector.x * this.vector.x + this.vector.y * this.vector.y + this.vector.z * this.vector.z);
@@ -91,4 +106,4 @@ Vector3.getAngleCurve = function(vector1, vector2) {
 
     return createSphereArc(vector1.normalize().multiplyScalar(radius),
         vector2.normalize().multiplyScalar(radius));
-}
+};
