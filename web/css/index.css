@@ -19,6 +19,30 @@ body {
     left: 0;
     width:30%;
     height: 100%;
-    background-color: aqua;
+    background-color: #B3E5FC;
+    padding-left: 10px;
+}
+
+.tF{
+    width: 5%;
+    margin: 5px;
+}
+
+#guiId{
+    margin-left: 10px;
+}
+
+#btn1{
+    width: 100px;
+    float: left;
+    height: 36px;
+    margin: 5px;
+
+}
+#btn2{
+    width: 100px;
+    float: left;
+    height: 36px;
+    margin: 5px;
 
 }

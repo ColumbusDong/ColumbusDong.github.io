@@ -3,12 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Vectors</title>
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
 
-   <div class="gui" id="guiId">
-       <input type="button" style="z-index:2; position:absolute; top: 20px;; left: 20px;" value="test"/>
+   <div id="guiId">
+       <!-- The textfield x -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
+           <label class="mdl-textfield__label" for="xC">x</label>
+       </div>
+       <!-- The textfield y -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" id="yC">
+           <label class="mdl-textfield__label" for="yC">y</label>
+       </div>
+       <!-- The textfield z -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" id="zC">
+           <label class="mdl-textfield__label" for="zC">z</label>
+       </div>
+       <!-- Button 1-->
+       <div class="btnW">
+       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn1">
+           Button1
+       </button>
+       </div>
+       <!-- Button -->
+       <div class="btnW">
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn2">
+               Button2
+           </button>
+       </div>
     </div>
     <div  class="grid" id="gridId">
         <!-- Grid -->
