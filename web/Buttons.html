@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vectors</title>
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+   <div id="guiId">
+       <!-- Entering components -->
+       <div class="add">
+       <!-- The textfield x -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
+           <label class="mdl-textfield__label" for="xC">x</label>
+       </div>
+       <!-- The textfield y -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" id="yC">
+           <label class="mdl-textfield__label" for="yC">y</label>
+       </div>
+       <!-- The textfield z -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" id="zC">
+           <label class="mdl-textfield__label" for="zC">z</label>
+           <!-- Button Add Component-->
+           <div>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addC" onclick="newComponent()">
+                   Add
+               </button>
+           </div>
+       </div>
+
+       </div>
+
+       <!-- Entering angles -->
+       <div class="add">
+           <!-- The textfield r -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="rA">
+               <label class="mdl-textfield__label" for="rA">r</label>
+           </div>
+           <!-- The textfield θ -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" id="tA">
+               <label class="mdl-textfield__label" for="tA">θ</label>
+           </div>
+           <!-- The textfield Φ -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" id="pA">
+               <label class="mdl-textfield__label" for="pA">Φ</label>
+               <!-- Button Add Component-->
+               <div>
+                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addA" onclick="newAngle()">
+                       Add
+                   </button>
+               </div>
+           </div>
+
+       </div>
+
+
+        <!-- Select One Vector -->
+        <div>
+            Select One Vector:
+            <hr>
+       <!-- Button _Remove-->
+       <div>
+       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn1" onclick="remove()">
+           Remove
+       </button>
+       </div>
+       <!-- Button -->
+       <div>
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn2" onclick="multiply()">
+               Mutliply
+           </button>
+       </div>
+    </div>
+   </div>
+    <div  class="grid" id="gridId">
+        <!-- Grid -->
+    </div >
+    <!-- 
+    
+    	document.getObjectWithId("btn2").onClick = add
+     -->
+    <script src="../three/three.min.js"></script>
+    <script src="../three/OrbitControls.js"></script>
+    <script src="../src/box.js"></script>
+    <script src="../src/GridTest.js"></script>
+    <script src="../src/SceneManager.js"></script>
+    <script src="../src/vector.js"></script>
+    <script src="../src/vector3.js"></script>
+    <script src="../src/vectorList.js"></script>
+	<script src="../src/vectorFunctions.js"></script>
+</body>
+</html>

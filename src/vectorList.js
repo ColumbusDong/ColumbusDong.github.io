@@ -5,7 +5,7 @@
  * @returns a String with the desired output
  */
 function printComponentVector( vec3 ) {
-	var outString = "" + vec3.id + ": <" + vec3.x + ", " + vec3.y + ", " + vec3.z + ">";
+	var outString = "v" + vec3.id + ": <" + vec3.x + ", " + vec3.y + ", " + vec3.z + ">";
 	return outString;
 }
 
@@ -16,7 +16,7 @@ function printComponentVector( vec3 ) {
  * @returns a String with the desired output
  */
 function printAngleVector( vec3 ) {
-	var outString = "" + vec3.id + ": ";
+	var outString = "v" + vec3.id + ": ";
 	// first, compute magnitude
 	var r = Math.sqrt( vec3.x * vec3.x + vec3.y * vec3.y + vec3.z * vec3.z );
 	if ( r == 0 ) { // if magnitude is 0, return 0
@@ -85,12 +85,12 @@ function getHighlighted( vecList ) {
  * @returns nothing
  */
 function refreshHighlights( vecList ) {
-	var vecOpt = document.getObjectById("vectorOption");
+	var vecOpt = document.getElementById("vectorOption");
 	// populate all selected options list
 	var highlightedVecs = getHighlighted( vecList );
-	for ( var i = 0; i < vecList.length(); i++ ) {
-		var cur = vecList.get( i );
-		if ( highlightedVecs.contains( vecList.get( i ) ) ) {
+	for ( var i in vecList.list ) {
+		var cur = i.arrow;
+		if ( highlightedVecs.contains( cur ) ) {
 			cur.setLength( cur.length, cur.length, cur.length * 0.2);
 		}
 		else {
@@ -106,17 +106,17 @@ function refreshHighlights( vecList ) {
  * 						false if they should be listed in angle form
  */
 function refreshOptionList( vecList, inComponent ) {
-	var vecOpt = document.getObjectById("vectorOption");
+	var vecOpt = document.getElementById("vectorOption");
 	// <select id="vectorOption" size="7" multiple> ... </select>
 	while( vecOpt.length > 0 )
 		vecOpt.remove(0);
-	for( i = 0; i < vecList.length; i++ ) {
+	for( var i in vecList ) {
 		var newString;
 		if ( inComponent == true ) {
-			newString = printComponentVector( vecList[ i ] );
+			newString = printComponentVector( i );
 		}
 		else {
-			newString = printAngleVector( vecList[ i ] );
+			newString = printAngleVector( i );
 		}
 		var x = document.createElement( "OPTION" );
 		x.setAttribute("value","newString");
@@ -124,4 +124,11 @@ function refreshOptionList( vecList, inComponent ) {
 		c.appendChild( t );
 		vecOpt.add( x );
 	}
+}
+
+/**
+ * Calls both refresh methods. 
+ */
+function refresh() {
+	// TODO
 }
