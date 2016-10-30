@@ -12,8 +12,23 @@ var SceneManager = function() {
     this.list = [];
     this.count = 0;
 
+    this.camera.position.z = 5;
+    this.camera.position.y = 5;
+
+
+
+    var size = 10;
+    var step = 10;
+    var gridHelper = new THREE.GridHelper(size, step);
+
+    var controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+    controls.target.set(0, 0, 0);
+
+    this.scene.add(gridHelper);
+
 
 };
+
 
 SceneManager.prototype.add = function(direction, color, start) {
     var vector;
@@ -58,6 +73,16 @@ SceneManager.prototype.get = function(id) {
             return this.list[i];
         }
     }
+};
+
+SceneManager.prototype.set = function(id, newVector, newColor, newStart) {
+    var vector = this.get(id);
+    vector.set(newVector, newColor, newStart);
+    for(var i = 0; i < vector.angles.length; i++) {
+        this.scene.remove(vector.angles[i]);
+    }
+
+    vector.angles = [];
 };
 
 SceneManager.prototype.drawAngle = function(id1, id2) {
