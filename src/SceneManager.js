@@ -61,13 +61,9 @@ SceneManager.prototype.drawGrid = function(size, step) {
     //Make Arrows
     var origin = new THREE.Vector3(0,0,0);
     var xhex = 0xf44336;
-<<<<<<< HEAD
-    var yhex = 0x4caf50;
-    var zhex = 0x2196f3;
-=======
+
     var yhex = 0x4CAF50;
     var zhex = 0x03A9F4;
->>>>>>> 159b4aa73e4d8d2697cf9a20574d8c6f13dc9b23
 
     var xPosArrow = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), origin, size*1.09, xhex, size *.09, size *.09);
     //var xNegArrow = new THREE.ArrowHelper(new THREE.Vector3(-1,0,0), origin, size + 2.5*step, xhex );
@@ -92,8 +88,6 @@ SceneManager.prototype.drawGrid = function(size, step) {
     this.scene.add(xAxes);
 
     //Add Thicker Y Axes
-    var yAxes = makeCylinder(.125, 2*size, zhex);
-=======
     var yAxes = makeCylinder(.1, 2*size, zhex);
     yAxes.rotation.x = Math.PI/2;
     yAxes.rotation.y = Math.PI/2;
