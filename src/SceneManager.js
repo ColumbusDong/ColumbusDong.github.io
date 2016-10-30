@@ -94,19 +94,6 @@ SceneManager.prototype.drawGrid = function(size, step) {
     //Add Thicker Z Axes
     var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
     this.scene.add(zAxes);
-
-    //Add Labels
-    var xLabel = makeTextSprite("X-Axis", {fontsize: .4*size, scale: .4*size});
-    xLabel.position.set(size, 0, 0);
-    this.scene.add(xLabel);
-
-    var zLabel = makeTextSprite("Z-Axis", {fontsize: .4*size, scale: .4*size});
-    zLabel.position.set(0, size, 0);
-    this.scene.add(zLabel);
-
-    var yLabel = makeTextSprite("Y-Axis", {fontsize: .4*size, scale: .4*size});
-    yLabel.position.set(0, 0, size);
-    this.scene.add(yLabel);
 }
 
 /**
