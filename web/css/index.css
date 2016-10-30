@@ -49,10 +49,11 @@ body {
 }
 
 .twoVPos{
-    width: 75px;
-    height: 30px;
+    width: 90px;
+    height: 40px;
     float: left;
     margin: 5px;
+    padding: 0;
 }
 
 .viewPos{
@@ -79,6 +80,16 @@ body {
 .margin{
     margin: 5px;
 
+
+}
+
+.white{
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;
+    bottom: 50%;
 
 }
 

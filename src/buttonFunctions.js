@@ -5,6 +5,14 @@ var isDegree = true;
 // define scene manager
 sceneManager = new SceneManager();
 
+sceneManager.render = function() {
+	req = requestAnimationFrame(this.render.bind(this));
+
+	this.renderer.render(this.scene, this.camera);
+
+}
+
+
 /**
  * Prints the given string to the calculator console
  * @param str to print
@@ -27,10 +35,12 @@ function newComponent() {
 		//linePrint( "x: " + newX + ", y: " + newY + ", z:" + newZ);
 		return;
 	}
-	var newVector = new Vector3( {x:newX, y:newY, z:newZ} );
+	var newVector = new Vector3({x:newX, y:newY, z:newZ});
 	sceneManager.add( newVector );
 	linePrint( "v" + (sceneManager.count - 1) + " = <" + newX + ", " + newY + ", " + newZ + ">");
 	refresh();
+	sceneManager.render();
+
 }
 
 /**
