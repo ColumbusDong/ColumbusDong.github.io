@@ -14,16 +14,25 @@ var SceneManager = function() {
     renderer.setSize(width, height);
     renderer.setClearColor (0xFFFFFF, 1);
     document.getElementById("gridId").appendChild( renderer.domElement );
-
+    var size = 40;
+    var step = size * 0.1;
+    this.drawGrid(size, step)
     //Initial Camera Position
-    camera.position.x = 40;
-    camera.position.y = 40;
-    camera.position.z = 40;
+    camera.position.x = size;
+    camera.position.y = size;
+    camera.position.z = size;
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 0, 0);
 
-    this.drawGrid(40);
+
+
+    var render = function () {
+        requestAnimationFrame( render );
+        renderer.render(scene, camera);
+    };
+
+    render();
 
 };
 
@@ -32,85 +41,72 @@ var SceneManager = function() {
  * @param size The distance between each step
  * @param step The number of steps
  */
-SceneManager.prototype.drawGrid = function(sizeIn) {
-  //Grid Dimensions
-  var size = 0;
+SceneManager.prototype.drawGrid = function(size, step) {
+//XY
+    var gridXY = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
 
-  if (sizeIn == undefined)
-  {
-    size = 40;
-  }
-  else {
-    size = sizeIn;
-  }
+    //XZ
+    var gridXZ = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
+    gridXZ.rotation.x = Math.PI/2;
 
-  var step = sizeIn*.1; //Note this is Partitions per size;
+    //YZ
+    var gridYZ = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
+    gridYZ.rotation.z = Math.PI/2;
 
-  //XY
-  var gridXY = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
+    //Add Grid
+    this.scene.add(gridXZ);
+    this.scene.add(gridXY);
+    this.scene.add(gridYZ);
 
-  //XZ
-  var gridXZ = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
-  gridXZ.rotation.x = Math.PI/2;
+    //Make Arrows
+    var origin = new THREE.Vector3(0,0,0);
+    var xhex = 0xff0000;
+    var yhex = 0x00ff00;
+    var zhex = 0x0000ff;
 
-  //YZ
-  var gridYZ = new THREE.GridHelper(size, step*2, 0x000000, 0xd9dde2);
-  gridYZ.rotation.z = Math.PI/2;
+    var xPosArrow = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), origin, size*1.09, xhex, size *.09, size *.09);
+    //var xNegArrow = new THREE.ArrowHelper(new THREE.Vector3(-1,0,0), origin, size + 2.5*step, xhex );
+    var yPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), origin, size*1.09, yhex, size *.09, size *.09);
+    //var yNegArrow = new THREE.ArrowHelper(new THREE.Vector3(0,-1,0), origin, size + 2.5*step, yhex );
+    var zPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), origin, size*1.09, zhex, size *.09, size *.09);
+    //var zNegArrow = new THREE.ArrowHelper(new THREE.Vector3(0,0,-1), origin, size + 2.5*step, zhex );
 
-  //Add Grid
-  this.add(gridXZ);
-  this.add(gridXY);
-  this.add(gridYZ);
+    //Add Arrows
+    this.scene.add(xPosArrow);
+    //scene.add(xNegArrow);
+    this.scene.add(yPosArrow);
+    //scene.add(yNegArrow);
+    this.scene.add(zPosArrow);
+    //scene.add(zNegArrow);
 
-  //Make Arrows
-  var origin = new THREE.Vector3(0,0,0);
-  var xhex = 0xff0000;
-  var yhex = 0x00ff00;
-  var zhex = 0x0000ff;
+    //Add Thicker X Axes
+    var xAxes = makeCylinder(.125, 2*size, 0xFF0000);
+    xAxes.rotation.x = Math.PI/2;
+    xAxes.rotation.z = Math.PI/2;
+    this.scene.add(xAxes);
 
-  var xPosArrow = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), origin, size*1.3, xhex, size *.3, size *.1);
-  //var xNegArrow = new THREE.ArrowHelper(new THREE.Vector3(-1,0,0), origin, size + 2.5*step, xhex );
-  var yPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), origin, size*1.3, yhex, size *.3, size *.1);
-  //var yNegArrow = new THREE.ArrowHelper(new THREE.Vector3(0,-1,0), origin, size + 2.5*step, yhex );
-  var zPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), origin, size*1.3, zhex, size *.3, size *.1);
-//var zNegArrow = new THREE.ArrowHelper(new THREE.Vector3(0,0,-1), origin, size + 2.5*step, zhex );
+    //Add Thicker Y Axes
+    var yAxes = makeCylinder(.125, 2*size, 0x0000FF);
+    yAxes.rotation.x = Math.PI/2;
+    yAxes.rotation.y = Math.PI/2;
+    this.scene.add(yAxes);
 
-//Add Arrows
-  this.add(xPosArrow);
-//scene.add(xNegArrow);
-  this.add(yPosArrow);
-//scene.add(yNegArrow);
-  this.add(zPosArrow);
-//scene.add(zNegArrow);
+    //Add Thicker Z Axes
+    var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
+    this.scene.add(zAxes);
 
-//Add Thicker X Axes
-  var xAxes = makeCylinder(.125, 2*size, 0xFF0000);
-  xAxes.rotation.x = Math.PI/2;
-  xAxes.rotation.z = Math.PI/2;
-  this.add(xAxes);
+    //Add Labels
+    var xLabel = makeTextSprite("X-Axis");
+    xLabel.position.set(size, 0, 0);
+    this.scene.add(xLabel);
 
-//Add Thicker Y Axes
-  var yAxes = makeCylinder(.125, 2*size, 0x0000FF);
-  yAxes.rotation.x = Math.PI/2;
-  yAxes.rotation.y = Math.PI/2;
-  this.add(yAxes);
+    var zLabel = makeTextSprite("Z-Axis");
+    zLabel.position.set(0, size, 0);
+    this.scene.add(zLabel);
 
-//Add Thicker Z Axes
-  var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
-  this.add(zAxes);
-
-//Add Axis Labels
-  var xLabel = makeTextSprite("X-Axis");
-  xLabel.position.set(size, 0, 0);
-  this.add(xLabel);
-
-  var zLabel = makeTextSprite("Z-Axis");
-  zLabel.position.set(0, size, 0);
-  this.add(zLabel);
-
-  var yLabel = makeTextSprite("Y-Axis");
-  yLabel.position.set(0, 0, size);
-  this.add(yLabel);
+    var yLabel = makeTextSprite("Y-Axis");
+    yLabel.position.set(0, 0, size);
+    this.scene.add(yLabel);
 }
 
 /**
