@@ -122,7 +122,12 @@ function subtract() {
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
-	var newVector = Vector3.sub( hlList[0], hlList[1], 0x000000 );
+	var reversed = document.getElementById( "reverseArgs" );
+	var newVector;
+	if ( reversed.checked )
+		newVector = Vector3.sub( hlList[1], hlList[0], 0x000000 );
+	else
+		newVector = Vector3.sub( hlList[0], hlList[1], 0x000000 );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " - v" + hlList[1].id + " = v" + newVector.id );
 	refresh( sceneManager.list );
@@ -142,7 +147,12 @@ function cross() {
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
-	var newVector = Vector3.cross( hlList[0], hlList[1], 0x000000 );
+	var reversed = document.getElementById( "reverseArgs" );
+	var newVector;
+	if ( reversed.checked )
+		newVector = Vector3.cross( hlList[1], hlList[0], 0x000000 );
+	else
+		newVector = Vector3.cross( hlList[0], hlList[1], 0x000000 );
 	sceneManager.add( newVector );
 	linePrint( "The cross product of v" + hlList[0].id + " and v" + hlList[1].id + " = v" + newVector.id );
 	refresh( sceneManager.list );
