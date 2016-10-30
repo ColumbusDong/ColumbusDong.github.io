@@ -6,203 +6,52 @@
     <link rel="stylesheet" href="mdl/material.min.css">
     <script src="mdl/material.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
+<div id = "main">
+    <div id = "header">
+        <div id = "title">
+            <p id = "mainTitle">Welcome to the 3-D Vector Calculator</p>
+            <p id = "subTitle">By Amalan, Columbus, Jay, and Louis</p>
+        </div>
+        <!--   <div id = "buttonHold">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+              Vectors
+            </button>
 
-   <div id="guiId">
-       <!-- Entering components -->
-       <div class="margin">
-           <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mred posL">
-                             <span class="white f20">X</span>
-                          </button>
-                      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mblue posL">
-                          <span class="white f20">Y</span>
-                      </button>
-                      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mgreen posL">
-                          <span class="white f20">Z</span>
-                      </button>
-                  </div>
-              <div class="margin">
-       <!-- The textfield x -->
-       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF " >
-           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="xC">
-           <label class="mdl-textfield__label" for="xC">x</label>
-       </div>
-       <!-- The textfield y -->
-       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="yC">
-           <label class="mdl-textfield__label" for="yC">y</label>
-       </div>
-       <!-- The textfield z -->
-       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="zC">
-           <label class="mdl-textfield__label" for="zC">z</label>
-           <!-- Button Add Component-->
-           <div>
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " id="addC">
-                  <span class="white" >Add</span>
-               </button>
-           </div>
-       </div>
-
-       </div>
-
-       <!-- Entering angles -->
-       <div class="margin">
-           <!-- The textfield r -->
-           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="rA">
-               <label class="mdl-textfield__label" for="rA">r</label>
-           </div>
-           <!-- The textfield θ -->
-           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="tA">
-               <label class="mdl-textfield__label" for="tA">θ</label>
-           </div>
-           <!-- The textfield Φ -->
-           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="pA">
-               <label class="mdl-textfield__label" for="pA">Φ</label>
-               <!-- Button Add Component-->
-               <div>
-                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent white" id="addA" >
-                       <span class="white" >Add</span>
-                   </button>
-               </div>
-           </div>
-
-       </div>
-       Vector List:
-       <hr>
-       <select id="vectorOption" size="7" multiple></select>
-
-        <!-- Select One Vector -->
-        <div class="margin">
-            Select One Vector:
-            <hr>
-            <!-- 1st Row Buttons -->
-            <!-- Button _Remove-->
-
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="remove">
-                       <span class="white" >Remove</span>
-                    </button>
-
-            <!-- Button_Multiply -->
-
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="multiply">
-                      <span class="white" >Multiply</span>
-                    </button>
-
-            <!-- The textfield scalar -->
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tfS" >
-                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="scalar1">
-                    <label class="mdl-textfield__label" for="scalar1">Scalar</label>
-                </div>
-
-            <!-- 2nd Row Button  -->
-            <!-- Button _Remove-->
-
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="magnitude">
-                    <span class="white" >Magnitude</span>
-                </button>
-
-            <!-- Button_Multiply -->
-
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="divide">
-                     <span class="white" >Divide</span>
-                </button>
-
-            <!-- The textfield scalar -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tfS" >
-                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="scalar2">
-                <label class="mdl-textfield__label" for="scalar2">Scalar</label>
-            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+              Vector Valued Functions
+            </button> -->
     </div>
+</div>
 
-       <!-- Select two Vectors -->
-       <div class="margin">
-           Select Two Vectors:
-           <hr>
-           <!-- + button -->
+<!-- Vector -->
+<a  href="Vector.html" >
+    <div class="vector mdl-card shadowC card1Pos">
+        <div class="mdl-card__title">
+            <div class="mdl-color-text--blue posH">Vectors</div>
+        </div>
+        <div class="mdl-card__supporting-text ">
 
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="add" style="color: white">
-                   <span class="white" >+</span>
-               </button>
-
-           <!-- subtract button -->
-
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="subtract" >
-                   <span class="white" >-</span>
-               </button>
-
-           <!-- dot button -->
-
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="dot">
-                  <span class="white" >.</span>
-               </button>
-           <!-- Cross button -->
-
-           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="cross">
-               <span class="white" >X</span>
-           </button>
-
-           <!-- Angle -->
-
-           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="angle">
-              <span class="white" >Angle</span>
-           </button>
-
-       </div>
-
-       <!-- View -->
-       <div class="margin posText">
-           View:
-           <hr>
-
-           <!-- Component Form Button -->
-           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="componentF" >
-               <span class="white" > Component Form </span>
-           </button>
-
-           <!-- Angle Form Buton -->
-           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="AngleF">
-               <span class="white" >Angle Form</span>
-           </button>
-
-           <!-- Degrees Button -->
-           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="degree">
-               <span class="white" >Degree</span>
-           </button>
-
-           <!-- Radians Button -->
-           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="rads" >
-              <span class="white" >Radians</span>
-           </button>
+        </div>
+    </div>
+</a>
 
 
+<!-- Vector Function -->
 
-       </div>
+<a  href="VectorFunction.html" >
+    <div class="vectorF mdl-card shadowC card2Pos">
+        <div class="mdl-card__title">
+            <div class="mdl-color-text--blue posH"> Vector Functions</div>
+        </div>
+        <div class="mdl-card__supporting-text ">
 
-       <!-- Vector List -->
-       <div class="margin posText">
-           Output:
-           <hr>
-           <div class="mdl-textfield mdl-js-textfield" style="width: 95%">
-               <textarea readonly class="mdl-textfield__input" type="text" rows= "5" id="output"></textarea>
-           </div>
-       </div>
+        </div>
+    </div>
+</a>
 
-   </div>
-    <div  class="grid" id="gridId">
-        <!-- Grid -->
-    </div >
-    <script src="../three/three.min.js"></script>
-    <script src="../three/OrbitControls.js"></script>
-    <script src="../three/functions.js"></script>
-    <script src="../src/SceneManager.js"></script>
-    <script src="../src/vector3.js"></script>
-    <script src="../src/vList.js"></script>
-    <script src="../src/buttonFunctions.js"></script>
 </body>
 </html>

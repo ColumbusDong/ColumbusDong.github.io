@@ -125,6 +125,7 @@ function refreshHighlights( vecList ) {
 }
 
 var hasBeenCalled = 0;
+var isComponent = true;
 
 /**
  * Refreshes the option list, given a list of vectors

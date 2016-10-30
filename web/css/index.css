@@ -12,7 +12,6 @@ body {
     display: block;
     width: 65%;
     height: 100%;
-    z-index: 1;
 }
 
 #guiId{
@@ -104,9 +103,6 @@ body {
     width: 100%;
     padding: 3px;
 }
-
-<<<<<<< HEAD
-=======
 #vectorOption{
     padding-top: 10px;
     width: 95%;
@@ -120,8 +116,6 @@ body {
     font-size: 1.2em;
 
 }
-
->>>>>>> 159b4aa73e4d8d2697cf9a20574d8c6f13dc9b23
 .mred{
     background-color: #f44336 !important;
 }
@@ -137,12 +131,99 @@ body {
 .posL{
     margin-right: 15%;
 }
-<<<<<<< HEAD
-=======
 
 .f20{
     font-size: 20px;
 }
 
->>>>>>> 159b4aa73e4d8d2697cf9a20574d8c6f13dc9b23
 
+#header {
+  margin: 0px;
+  padding: 20px;
+  text-align: center;
+  background-color: #2196F3;
+  color: #FFFFFF;
+  width: 100%;
+  height: 30%;
+  font-size: 3em;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#mainTitle {
+  font-size: 55px;
+  color: #FFFFFF;
+  text-align: center;
+  height: 60px;
+  margin-top: 20px;
+}
+
+#subTitle {
+  font-size: 30px;
+  color: inherit;
+  text-align: center;
+  height: 30px;
+}
+
+.vector.mdl-card {
+    width: 512px;
+}
+
+.vectorF.mdl-card {
+    width: 512px;
+}
+.vector > .mdl-card__title {
+     color: #fff;
+     height: 248px;
+     background: url('../images/Vectors.png') center/cover;
+     text-align: left;
+ }
+
+.vectorF > .mdl-card__title {
+    color: #fff;
+    height: 248px;
+    background: url('../images/VectorsFunction.png') center/cover;
+    text-align: left;
+}
+
+.card1Pos{
+    margin-top: 7%;
+    float: left;
+    left: 10%;
+    top: 66%;
+}
+
+.card2Pos{
+    left: -13%;
+    margin-top: 7%;
+    float: right;
+    top: 66%;
+}
+
+.home{
+    right: 3%;
+    bottom:3%;
+    z-index: 1;
+    position: fixed;
+    opacity: 0.7;
+    transition: all 0.6s ease 0s;
+}
+
+.home:hover{
+    opacity: 1;
+}
+
+.posH{
+    font-size: 1.2em;
+    margin-bottom: 40%;
+    text-align: left;
+    vertical-align: top;
+}
+
+.shadowC{
+    box-shadow:0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12),0 5px 5px -3px rgba(0,0,0,.2);
+    transition: all 0.6s ease 0s;
+}
+
+.shadowC:hover{
+    box-shadow:0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
+}
