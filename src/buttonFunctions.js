@@ -1,5 +1,5 @@
 /** Semi-global variable for component/angle */
-var isComponent = false;
+isComponent = true;
 /** Semi-global variable for degree/rad */
 var isDegree = true;
 // define scene manager
