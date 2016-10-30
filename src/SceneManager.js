@@ -80,16 +80,19 @@ SceneManager.prototype.drawGrid = function(size, step) {
     //scene.add(zNegArrow);
 
     //Add Thicker X Axes
+    var xAxes = makeCylinder(.1, 2*size, xhex);
     xAxes.rotation.x = Math.PI/2;
     xAxes.rotation.z = Math.PI/2;
     this.scene.add(xAxes);
 
     //Add Thicker Y Axes
+    var yAxes = makeCylinder(.1, 2*size, zhex);
     yAxes.rotation.x = Math.PI/2;
     yAxes.rotation.y = Math.PI/2;
     this.scene.add(yAxes);
 
     //Add Thicker Z Axes
+    var zAxes = makeCylinder(.1, 2*size, yhex);
     this.scene.add(zAxes);
 
 };
