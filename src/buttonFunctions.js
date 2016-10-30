@@ -211,7 +211,7 @@ function magnitude() {
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
-	var newMag = Vector3.magnitude( hlList[0] );
+	var newMag = hList[0].magnitude();
 	linePrint( "|v" + newMag + "| = " + newProduct );
 	refresh( sceneManager.list );
 	return;
