@@ -205,7 +205,7 @@ function dot() {
 function magnitude() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
+	var hlList = getHighlightedVecs();
 	if ( hlList.length != 1 ) {
 		linePrint( "Select one vector at once to find its magnitude." );
 		return;
