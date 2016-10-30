@@ -1,5 +1,9 @@
 /** Semi-global variable for component/angle */
 var isComponent = false;
+/** Semi-global variable for degree/rad */
+var isDegree = true;
+// define scene manager
+sceneManager = new SceneManager();
 
 /**
  * Prints the given string to the calculator console
@@ -22,7 +26,7 @@ function newComponent() {
 		//linePrint( "x: " + newX + ", y: " + newY + ", z:" + newZ);
 		return;
 	}
-	var newVector = new THREE.Vector3(newX, newY, newZ);
+	var newVector = new Vector3( {x:newX, y:newY, z:newZ} );
 	sceneManager.add( newVector );
 	linePrint( "v" + (sceneManager.count - 1) + " = <" + newX + ", " + newY + ", " + newZ + ">");
 	refresh();
@@ -33,8 +37,12 @@ function newComponent() {
  */
 function newAngle() {
 	var newR = parseFloat( document.getElementById("rA").value, 10 );
-	var newT = parseFloat( document.getElementById("tA").value, 10 ) * Math.PI / 180;
-	var newP = parseFloat( document.getElementById("pA").value, 10 ) * Math.PI / 180;
+	var newT = parseFloat( document.getElementById("tA").value, 10 );// * Math.PI / 180;
+	var newP = parseFloat( document.getElementById("pA").value, 10 );// * Math.PI / 180;
+	if ( isDegree ) {
+		newT *= Math.PI / 180.0
+		newP *= Math.PI / 180.0
+	}
 	var newX = parseFloat((newR * Math.cos(newT) * Math.cos(newP)).toFixed(6));
 	var newY = parseFloat((newR * Math.sin(newT)).toFixed(6));
 	var newZ = parseFloat((newR * Math.cos(newT) * Math.sin(newP)).toFixed(6));
@@ -48,7 +56,7 @@ function newAngle() {
 		linePrint( "Please enter valid numbers for r, θ, and ø.");
 		return;
 	}
-	var newVector = new THREE.Vector3(newX, newY, newZ);
+	var newVector = new Vector3( {x:newX, y:newY, z:newZ} );
 	sceneManager.add( newVector );
 	linePrint( "v" + (sceneManager.count - 1) + " = <" + newX + ", " + newY + ", " + newZ + ">");
 	refresh();
@@ -135,7 +143,7 @@ function cross() {
  * prints an error message to the console. Otherwise, takes the angle between
  * them and broadcasts it.
  */
-function angleBetween() {
+function angle() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
@@ -181,7 +189,7 @@ function magnitude() {
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
 	if ( hlList.length() != 1 ) {
-		linePrint( "Select one vectors at once to find its magnitude." );
+		linePrint( "Select one vector at once to find its magnitude." );
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
@@ -191,4 +199,92 @@ function magnitude() {
 	return;
 }
 
-// TODO: Multiply by scalar, Divide by scalar, Remove.
+/**
+ * Checks the highlighted vectors. If there is not exactly one of them,
+ * prints an error message to the console. Otherwise, takes the multiple
+ * of this vector with the given scalar and broadcasts it.
+ */
+function multiply() {
+	// First: check current highlighted items
+	var totalList = sceneManager.list;
+	var hlList = getHighlighted( totalList );
+	if ( hlList.length() != 1 ) {
+		linePrint( "Select one vector at once to find its multiple with a scalar." );
+		return;
+	}
+	// Second: check scalar
+	var multNum = parseFloat( document.getElementById("scalar1").value, 10 );
+	if ( multNum != multNum ) {
+		linePrint( "Please enter a valid number as a scalar to multiply by." );
+		return;
+	}
+	// Finally: do operation
+	var newVector = Vector3D.multiply( hlList[0], multNum );
+	sceneManager.add( newVector );
+	linePrint( "v" + hlList[0].id + " * " + multNum + " = v" + newVector.id );
+	refresh();
+	return;
+}
+
+/**
+ * Checks the highlighted vectors. If there is not exactly one of them,
+ * prints an error message to the console. Otherwise, takes the quotient
+ * of this vector with the given scalar and broadcasts it.
+ */
+function divide() {
+	// First: check current highlighted items
+	var totalList = sceneManager.list;
+	var hlList = getHighlighted( totalList );
+	if ( hlList.length() != 1 ) {
+		linePrint( "Select one vector at once to find its quotient with a scalar." );
+		return;
+	}
+	// Second: check scalar
+	var multNum = parseFloat( document.getElementById("scalar2").value, 10 );
+	if ( multNum != multNum ) {
+		linePrint( "Please enter a valid number as a scalar to divide by." );
+		return;
+	}
+	else if ( multNum == 0 ) {
+		linePrint ( "Cannot divide by 0. Try again. " );
+		return;
+	}
+	// Finally: do operation
+	var newVector = Vector3D.multiply( hlList[0], 1 / multNum );
+	sceneManager.add( newVector );
+	linePrint( "v" + hlList[0].id + " / " + multNum + " = v" + newVector.id );
+	refresh();
+	return;
+}
+
+/**
+ * Sets the display to print vectors in component form.
+ */
+function setComponent() {
+	isComponent = true;
+	refresh();
+}
+
+/**
+ * Sets the display to print vectors in angle form.
+ */
+function setAngle() {
+	isComponent = false;
+	refresh();
+}
+
+/**
+ * Sets the program to manipulate angles in degrees
+ */
+function setDegrees() {
+	isDegree = true;
+	refresh();
+}
+
+/**
+ * Sets the display to manipulate angles in radians
+ */
+function setRadian() {
+	isDegree = false;
+	refresh();
+}

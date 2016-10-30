@@ -12,7 +12,7 @@
 
    <div id="guiId">
        <!-- Entering components -->
-       <div class="add">
+       <div class="margin">
        <!-- The textfield x -->
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
            <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
@@ -30,7 +30,7 @@
            <!-- Button Add Component-->
            <div>
                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addC" onclick="newComponent()">
-                   Add
+                   <div class="white">Add</div>
                </button>
            </div>
        </div>
@@ -38,7 +38,7 @@
        </div>
 
        <!-- Entering angles -->
-       <div class="add">
+       <div class="margin">
            <!-- The textfield r -->
            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
                <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="rA">
@@ -55,8 +55,8 @@
                <label class="mdl-textfield__label" for="pA">Φ</label>
                <!-- Button Add Component-->
                <div>
-                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addA" onclick="newAngle()">
-                       Add
+                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent white" id="addA" onclick="newAngle()">
+                       <div class="white"> Add</div>
                    </button>
                </div>
            </div>
@@ -65,38 +65,132 @@
 
 
         <!-- Select One Vector -->
-        <div>
+        <div class="margin">
             Select One Vector:
             <hr>
-       <!-- Button _Remove-->
-       <div>
-       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn1" onclick="remove()">
-           Remove
-       </button>
-       </div>
-       <!-- Button -->
-       <div>
-           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn2" onclick="multiply()">
-               Mutliply
-           </button>
-       </div>
+            <!-- 1st Row Buttons -->
+            <!-- Button _Remove-->
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="remove" onclick="remove()">
+                        <div class="white">Remove</div>
+                    </button>
+
+            <!-- Button_Multiply -->
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="multiply" onclick="multiply()">
+                        <div class="white"> Multiply </div>
+                    </button>
+
+            <!-- The textfield scalar -->
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tfS" >
+                    <input class="mdl-textfield__input" type="text" id="scalar1">
+                    <label class="mdl-textfield__label" for="scalar1">Scalar</label>
+                </div>
+
+            <!-- 2nd Row Button  -->
+            <!-- Button _Remove-->
+
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="magnitude" onclick="magnitude()">
+                    <div class="white">Magnitude</div>
+                </button>
+
+            <!-- Button_Multiply -->
+
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="divide" onclick="divide()">
+                    <div class="white"> Divide </div>
+                </button>
+
+            <!-- The textfield scalar -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tfS" >
+                <input class="mdl-textfield__input" type="text" id="scalar2">
+                <label class="mdl-textfield__label" for="scalar2">Scalar</label>
+            </div>
     </div>
+
+       <!-- Select two Vectors -->
+       <div class="margin">
+           Select Two Vectors:
+           <hr>
+           <!-- + button -->
+
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="add" onclick="add()">
+                   <div class="white">+</div>
+               </button>
+
+           <!-- subtract button -->
+
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="subtract" onclick="subtract()">
+                   <div class="white">-</div>
+               </button>
+
+           <!-- dot button -->
+
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="dot" onclick="dot()">
+                   <div class="white">.</div>
+               </button>
+           <!-- cross button -->
+
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="cross" onclick="cross()">
+               <div class="white">X</div>
+           </button>
+
+           <!-- Angle -->
+
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="angle" onclick="angle()">
+               <div class="white">Angle</div>
+           </button>
+
+       </div>
+
+       <!-- View -->
+       <div class="margin">
+           View:
+           <hr>
+
+           <!-- Component Form Button -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="componentF" onclick="setComponent()">
+               <div class="white">Component Form</div>
+           </button>
+
+           <!-- Angle Form Buton -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="AngleF" onclick="setAngle()">
+               <div class="white">Angle Form</div>
+           </button>
+
+           <!-- Degrees Button -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="degree" onclick="setDegrees()">
+               <div class="white">Degree</div>
+           </button>
+
+           <!-- Radians Button -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="rads" onclick="setRadian()">
+               <div class="white">Rads</div>
+           </button>
+
+
+
+       </div>
+
+       <!-- Vector List -->
+       <div class="margin">
+           Vector List:
+           <hr>
+       </div>
+
    </div>
+    
     <div  class="grid" id="gridId">
         <!-- Grid -->
     </div >
-    <!-- 
-    
-    	document.getObjectWithId("btn2").onClick = add
-     -->
     <script src="../three/three.min.js"></script>
     <script src="../three/OrbitControls.js"></script>
+    <script src="../three/functions.js"></script>
     <script src="../src/box.js"></script>
     <script src="../src/GridTest.js"></script>
     <script src="../src/SceneManager.js"></script>
     <script src="../src/vector.js"></script>
     <script src="../src/vector3.js"></script>
     <script src="../src/vectorList.js"></script>
-	<script src="../src/vectorFunctions.js"></script>
+    <script src="../src/buttonFunctions.js"></script>
 </body>
 </html>

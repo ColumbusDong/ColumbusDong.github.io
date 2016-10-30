@@ -24,7 +24,9 @@ function printAngleVector( vec3 ) {
 	}
 	
 	// next, compute vertical angle
-	var vertAngle = Math.asin( vec3.y / r ) * 180 / Math.PI;
+	var vertAngle = Math.asin( vec3.y / r );// * 180 / Math.PI;
+	if ( isDegree )
+		vertAngle *= 180.0 / Math.PI
 	if ( vec3.x < 0 ) {
 		vertAngle = 180 - vertAngle;
 	}
@@ -42,7 +44,9 @@ function printAngleVector( vec3 ) {
 		}
 	}
 	else {
-		horizAngle = Math.atan2( vec3.z, vec3.x ) * 180 / Math.PI;
+		horizAngle = Math.atan2( vec3.z, vec3.x );// * 180 / Math.PI;
+		if ( isDegree )
+			horizAngle *= 180.0 / Math.PI;
 	}
 	if ( vec3.x < 0 ) {
 		horizAngle = 180 - horizAngle;
@@ -112,7 +116,7 @@ function refreshOptionList( vecList, inComponent ) {
 		vecOpt.remove(0);
 	for( var i in vecList ) {
 		var newString;
-		if ( inComponent == true ) {
+		if ( isComponent == true ) {
 			newString = printComponentVector( i );
 		}
 		else {
