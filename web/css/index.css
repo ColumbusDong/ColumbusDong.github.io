@@ -104,9 +104,6 @@ body {
     width: 100%;
     padding: 3px;
 }
-
-<<<<<<< HEAD
-=======
 #vectorOption{
     padding-top: 10px;
     width: 95%;
@@ -120,8 +117,6 @@ body {
     font-size: 1.2em;
 
 }
-
->>>>>>> 159b4aa73e4d8d2697cf9a20574d8c6f13dc9b23
 .mred{
     background-color: #f44336 !important;
 }
@@ -137,14 +132,10 @@ body {
 .posL{
     margin-right: 15%;
 }
-<<<<<<< HEAD
-=======
 
 .f20{
     font-size: 20px;
 }
-
->>>>>>> 159b4aa73e4d8d2697cf9a20574d8c6f13dc9b23
 
 #main {
   width: 960px;
