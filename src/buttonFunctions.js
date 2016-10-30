@@ -46,14 +46,7 @@ function newComponent() {
 /**
  * Creates a new vector from angle form and adds it to the sceneManager.
  */
-/**
- * Creates a new vector from angle form and adds it to the sceneManager.
- */
-/**
- * Creates a new vector from angle form and adds it to the sceneManager.
- */
 function newAngle() {
-	// first, find input
 	var newR = parseFloat( document.getElementById("rA").value, 10 );
 	var newT = parseFloat( document.getElementById("tA").value, 10 );// * Math.PI / 180;
 	var newP = parseFloat( document.getElementById("pA").value, 10 );// * Math.PI / 180;
@@ -61,87 +54,9 @@ function newAngle() {
 		newT *= Math.PI / 180.0
 		newP *= Math.PI / 180.0
 	}
-	console.log( "R: " + newR, ", Theta: " + newT, ", Phi: " + newP + "\n" );
-	// Make these coordinates manageable.
-	// newP is now stuck between -pi/2 and +pi/2
-	// newT is now stuck between -pi and +pi
-	while ( newT > Math.PI )
-		newT -= 2 * Math.PI;
-	while ( newT < -1 * Math.PI )
-		newT += 2 * Math.PI;
-	while( newP > Math.PI / 2)
-		newP -= Math.PI;
-	while( newP < -1 * Math.PI / 2 )
-		newP += Math.PI;
-	
-	// Next, translate input to X/Y/Z coordinates.
-	var newX, newY, newZ;
-	newX = parseFloat((newR * Math.cos(newT) * Math.cos(newP)).toFixed(6));
-	newY = parseFloat((newR * Math.sin(newT)).toFixed(6));
-	newZ = parseFloat((newR * Math.cos(newT) * Math.sin(newP)).toFixed(6));
-	// remember, -pi/2 < newP < +pi/2, 
-	// 		and		-pi < newT < +pi
-	if ( newT >= 0 && newT <= Math.PI/2 && newP >= 0 && newT <= Math.PI/2 ) {
-		// +x, +y, +z
-		newX = parseFloat((newR * Math.cos(newT) * Math.cos(newP)).toFixed(6));
-		newY = parseFloat((newR * Math.sin(newT)).toFixed(6));
-		newZ = parseFloat((newR * Math.cos(newT) * Math.sin(newP)).toFixed(6));
-	}
-	else if ( newT >= 0 && newT <= Math.PI/2 && newP <= 0 && newP >= -1 * Math.PI/2 ) {
-		// +x, +y, -z
-		newX = parseFloat((newR * Math.cos(newT) * Math.cos(Math.PI/2 + newP)).toFixed(6));
-		newY = parseFloat((newR * Math.sin(newT)).toFixed(6));
-		newZ = -1 * parseFloat((newR * Math.cos(newT) * Math.sin(Math.PI/2 + newP)).toFixed(6));
-	}
-	else if ( newT >= Math.PI/2 && newT <= Math.PI && newP >= 0 && newT <= Math.PI/2 ) {
-		// -x, +y, +z
-		newX = -1 * parseFloat((newR * Math.cos(Math.PI - newT) * Math.cos(newP)).toFixed(6));
-		newY = parseFloat((newR * Math.sin(Math.PI - newT)).toFixed(6));
-		newZ = parseFloat((newR * Math.cos(Math.PI - newT) * Math.sin(newP)).toFixed(6));
-	}
-	else if ( newT >= Math.PI/2 && newT <= Math.PI && newP <= 0 && newP >= -1 * Math.PI/2 ) {
-		// -x, +y, -z
-		newX = -1 * parseFloat((newR * Math.cos(Math.PI - newT) * Math.cos(Math.PI/2 + newP)).toFixed(6));
-		newY = parseFloat((newR * Math.sin(Math.PI - newT)).toFixed(6));
-		newZ = -1 * parseFloat((newR * Math.cos(Math.PI - newT) * Math.sin(Math.PI/2 + newP)).toFixed(6));
-	}
-	elseif ( newT <= 0 && newT >= -1 * Math.PI/2 && newP >= 0 && newT <= Math.PI/2 ) {
-		// +x, -y, +z
-		newX = parseFloat((newR * Math.cos(Math.PI/2 + newT) * Math.cos(newP)).toFixed(6));
-		newY = -1 * parseFloat((newR * Math.sin(Math.PI/2 + newT)).toFixed(6));
-		newZ = parseFloat((newR * Math.cos(Math.PI/2 + newT) * Math.sin(newP)).toFixed(6));
-	}
-	else if ( newT <= 0 && newT >= -1 * Math.PI/2 && newP <= 0 && newP >= -1 * Math.PI/2 ) {
-		// +x, -y, -z
-		newX = parseFloat((newR * Math.cos(Math.PI/2 + newT) * Math.cos(Math.PI/2 + newP)).toFixed(6));
-		newY = parseFloat((newR * Math.sin(Math.PI/2 + newT)).toFixed(6));
-		newZ = -1 * parseFloat((newR * Math.cos(Math.PI/2 + newT) * Math.sin(Math.PI/2 + newP)).toFixed(6));
-	}
-	else if ( newT <= -1 * Math.PI/2 && newT >= -1 * Math.PI && newP >= 0 && newT <= Math.PI/2 ) {
-		// -x, -y, +z
-		newX = -1 * parseFloat((newR * Math.cos(Math.PI + newT) * Math.cos(newP)).toFixed(6));
-		newY = -1 * parseFloat((newR * Math.sin(Math.PI + newT)).toFixed(6));
-		newZ = parseFloat((newR * Math.cos(Math.PI + newT) * Math.sin(newP)).toFixed(6));
-	}
-	else if ( newT <= -1 * Math.PI/2 && newT >= -1 * Math.PI && newP <= 0 && newP >= -1 * Math.PI/2 ) {
-		// -x, -y, -z
-		newX = -1 * parseFloat((newR * Math.cos(Math.PI + newT) * Math.cos(Math.PI/2 + newP)).toFixed(6));
-		newY = -1 * parseFloat((newR * Math.sin(Math.PI + newT)).toFixed(6));
-		newZ = -1 * parseFloat((newR * Math.cos(Math.PI + newT) * Math.sin(Math.PI/2 + newP)).toFixed(6));
-	}
-	if ( newX != newX  || newY != newY || newZ != newZ ) {
-		linePrint( "Please enter valid numbers for r, θ, and ø.");
-		return;
-	}
-	// Make sure everything is in the right coordinate plane
-	if ( (newP >= 0 && newP <= Math.PI/2 && newT >= 0 && newT <= Math.PI/2) 
-			|| (newP >= -Math.PI && newP <= -Math.PI / 2 && newT )) {
-		// first quadrant
-		newX = parseFloat((newR * Math.cos(newT) * Math.cos(newP)).toFixed(6));
-		newY = parseFloat((newR * Math.sin(newT)).toFixed(6));
-		newZ = parseFloat((newR * Math.cos(newT) * Math.sin(newP)).toFixed(6));
-	}
-	// Restrict number of decimal points
+	var newX = parseFloat((newR * Math.cos(newT) * Math.cos(newP)).toFixed(6));
+	var newY = parseFloat((newR * Math.sin(newT)).toFixed(6));
+	var newZ = parseFloat((newR * Math.cos(newT) * Math.sin(newP)).toFixed(6));
 	if ( newX < .000001 )
 		newX = 0;
 	if ( newY < .000001 )
