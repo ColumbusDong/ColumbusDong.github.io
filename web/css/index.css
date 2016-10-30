@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin: 0;
 }
 
@@ -24,6 +24,8 @@ body {
     background-color: #ffffff;
     margin-left: 10px;
     padding: 0;
+    max-width: 550px;
+
 }
 
 /* Text field properties for the fields for add */
@@ -48,14 +50,14 @@ body {
 
 .twoVPos{
     width: 75px;
-    height: 40px;
+    height: 30px;
     float: left;
     margin: 5px;
 }
 
 .viewPos{
-    width: 100px;
-    height: 70px;
+    width: 123px;
+    height: 45px;
     float: left;
     margin: 3px;
     padding: 0;
@@ -80,8 +82,12 @@ body {
 
 }
 
-.white{
-    color: #ffffff;
+.posText{
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding: 3px;
 }
 
 
