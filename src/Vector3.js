@@ -14,8 +14,8 @@ var Vector3 = function(vector, color, start, id) {
     this.id = id;
 
 
-    var from = new THREE.Vector3(start.x, start.y, start.z);
-    this.direction = new THREE.Vector3(vector.x, vector.y, vector.z);
+    var from = new THREE.Vector3(this.start.x, this.start.y, this.start.z);
+    this.direction = new THREE.Vector3(this.vector.x, this.vector.y, this.vector.z);
     var length = this.direction.length();
     var arrowHelper = new THREE.ArrowHelper(this.direction.clone().normalize(), from, length, this.color);
     this.arrow = arrowHelper;
