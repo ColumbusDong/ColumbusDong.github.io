@@ -7,7 +7,8 @@ var SceneManager = function() {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(this.width, this.height);
     this.renderer.setClearColor (0xFFFFFF, 1);
-    document.body.appendChild( this.renderer.domElement );
+    // document.body.appendChild( this.renderer.domElement );
+    document.getElementById("gridId").appendChild( this.renderer.domElement );
 
     this.list = [];
     this.count = 0;
@@ -15,20 +16,20 @@ var SceneManager = function() {
     this.camera.position.z = 5;
     this.camera.position.y = 5;
 
-
-
-    var size = 10;
-    var step = 10;
-    var gridHelper = new THREE.GridHelper(size, step);
+    this.drawGrid(10, 10);
 
     var controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     controls.target.set(0, 0, 0);
 
-    this.scene.add(gridHelper);
 
 
 };
 
+SceneManager.prototype.drawGrid = function(size, step) {
+    var gridHelper = new THREE.GridHelper(size, step);
+    this.scene.add(gridHelper);
+
+}
 
 SceneManager.prototype.add = function(direction, color, start) {
     var vector;
