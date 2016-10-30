@@ -9,7 +9,7 @@
 var Vector3 = function(vector, color, start, id) {
     this.vector = vector;
     this.color = color || 0x0;
-    this.start = start || {x: 0, y: 0, z: 0};
+    this.start = (typeof start === "undefinde") ? {x: 0, y: 0, z: 0} : start;
 
     this.id = id;
 
