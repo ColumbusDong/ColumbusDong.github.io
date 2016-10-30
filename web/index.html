@@ -15,17 +15,17 @@
        <div class="margin">
        <!-- The textfield x -->
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-           <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
+           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="xC">
            <label class="mdl-textfield__label" for="xC">x</label>
        </div>
        <!-- The textfield y -->
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-           <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="yC">
+           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="yC">
            <label class="mdl-textfield__label" for="yC">y</label>
        </div>
        <!-- The textfield z -->
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-           <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="zC">
+           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="zC">
            <label class="mdl-textfield__label" for="zC">z</label>
            <!-- Button Add Component-->
            <div>
@@ -41,17 +41,17 @@
        <div class="margin">
            <!-- The textfield r -->
            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-               <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="rA">
+               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="rA">
                <label class="mdl-textfield__label" for="rA">r</label>
            </div>
            <!-- The textfield θ -->
            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-               <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="tA">
+               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="tA">
                <label class="mdl-textfield__label" for="tA">θ</label>
            </div>
            <!-- The textfield Φ -->
            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-               <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="pA">
+               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="pA">
                <label class="mdl-textfield__label" for="pA">Φ</label>
                <!-- Button Add Component-->
                <div>
@@ -83,7 +83,7 @@
 
             <!-- The textfield scalar -->
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tfS" >
-                    <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="scalar1">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="scalar1">
                     <label class="mdl-textfield__label" for="scalar1">Scalar</label>
                 </div>
 
@@ -102,7 +102,7 @@
 
             <!-- The textfield scalar -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tfS" >
-                <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="scalar2">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="scalar2">
                 <label class="mdl-textfield__label" for="scalar2">Scalar</label>
             </div>
     </div>
@@ -128,7 +128,7 @@
                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="dot">
                   <span class="white" >.</span>
                </button>
-           <!-- cross button -->
+           <!-- Cross button -->
 
            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="cross">
                <span class="white" >X</span>
@@ -176,7 +176,7 @@
            Vector List:
            <hr>
            <div class="mdl-textfield mdl-js-textfield" style="width: 95%">
-               <textarea readonly class="mdl-textfield__input" type="text" rows= "2" id="output"></textarea>
+               <textarea readonly class="mdl-textfield__input" type="text" rows= "5" id="output"></textarea>
                <label class="mdl-textfield__label" for="output">Output</label>
            </div>
        </div>
@@ -188,12 +188,9 @@
     <script src="../three/three.min.js"></script>
     <script src="../three/OrbitControls.js"></script>
     <script src="../three/functions.js"></script>
-    <script src="../src/Vector3.js"></script>
-    <script src="../src/SceneManager.js"></script>
+    <script src="../src/GridTest.js"></script>
 
-    <script>
-    var sceneManager = new SceneManager();
-    </script>
+
 
 </body>
 </html>
