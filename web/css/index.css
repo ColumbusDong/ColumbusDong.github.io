@@ -137,12 +137,6 @@ body {
     font-size: 20px;
 }
 
-#main {
-  width: 960px;
-  background-color: #FFFFFF;
-  box-shadow: 0px 0px 20px #000000;
-  margin: auto;
-}
 
 #header {
   margin: 0px;
@@ -153,6 +147,7 @@ body {
   width: 100%;
   height: 200px;
   font-size: 3em;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #mainTitle {
@@ -168,4 +163,39 @@ body {
   color: inherit;
   text-align: center;
   height: 30px;
+}
+
+.vector.mdl-card {
+    width: 512px;
+}
+
+.vectorF.mdl-card {
+    width: 512px;
+}
+.vector > .mdl-card__title {
+     color: #fff;
+     height: 176px;
+     background: url('../images/Vectors.png') center/cover;
+     text-align: left;
+ }
+
+.vectorF > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('../images/VectorsFunction.png') center/cover;
+    text-align: left;
+}
+
+.card1Pos{
+    margin-top: 5%;
+    float: left;
+    left: 10%;
+    top: 70%;
+}
+
+.card2Pos{
+    left: -10%;
+    margin-top: 5%;
+    float: right;
+    top: 80%;
 }
