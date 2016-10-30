@@ -5,8 +5,8 @@ body {
 }
 
 .grid {
-    position:  absolute;
     top: 0;
+    position: fixed;
     left: 35%;
     background-color: #ffffff;
     display: block;
