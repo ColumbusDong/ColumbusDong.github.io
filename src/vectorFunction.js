@@ -11,6 +11,7 @@ document.getElementById("addA").onclick = function() {
     sceneManager.drawGrid(10, 10);
     sceneManager.count = 0;
 
+
     var xFunction = new Equation(document.getElementById("xt").value).compile("t");
     var yFunction = new Equation(document.getElementById("yt").value).compile("t");
     var zFunction = new Equation(document.getElementById("zt").value).compile("t");
