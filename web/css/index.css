@@ -200,9 +200,14 @@ body {
 }
 
 .home{
-    right: 1.5%;
+    right: 3%;
     bottom:3%;
     z-index: 1;
     position: fixed;
     opacity: 0.7;
+    transition: all 0.6s ease 0s;
+}
+
+.home:hover{
+    opacity: 1;
 }
