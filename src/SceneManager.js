@@ -95,22 +95,8 @@ SceneManager.prototype.drawGrid = function(size, step) {
     var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
     this.scene.add(zAxes);
 
-    // //Add Labels
-    // var xLabel = makeTextSprite("X-Axis", {fontsize: size, scale: 10});
-    // xLabel.position.set(size, 0, 0);
-    // this.scene.add(xLabel);
-    //
-    // var zLabel = makeTextSprite("Z-Axis", {fontsize: size, scale: 10});
-    // zLabel.position.set(0, size, 0);
-    // this.scene.add(zLabel);
-    //
-    // var yLabel = makeTextSprite("Y-Axis", {fontsize: size, scale: 10});
-    // yLabel.position.set(5, -5, size);
-    // this.scene.add(yLabel);
 
 
-
-}
 
 /**
  * Adds a vector to the grid

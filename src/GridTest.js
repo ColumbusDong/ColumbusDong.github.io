@@ -76,6 +76,7 @@ function init() {
   var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
   scene.add(zAxes);
 
+  /*
   //Add Labels
   var xLabel = makeTextSprite("X-Axis");
   xLabel.position.set(size, 0, 0);
@@ -88,6 +89,7 @@ function init() {
   var yLabel = makeTextSprite("Y-Axis");
   yLabel.position.set(0, 0, size);
   scene.add(yLabel);
+  */
 
   var render = function () {
       requestAnimationFrame( render );
