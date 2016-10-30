@@ -74,8 +74,8 @@ Vector3.prototype.setStart = function(newStart) {
  * Calculates the magnitude of the vector
  * @returns {number} magnitude
  */
-Vector3.prototype.magnitude = function() {
-    return Math.sqrt(this.vector.x * this.vector.x + this.vector.y * this.vector.y + this.vector.z * this.vector.z);
+Vector3.magnitude = function( ths ) {
+    return Math.sqrt(ths.vector.x * ths.vector.x + ths.vector.y * ths.vector.y + ths.vector.z * ths.vector.z);
 };
 
 /**
