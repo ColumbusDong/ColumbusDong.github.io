@@ -1,4 +1,18 @@
 /**
+ * http://cwestblog.com/2013/09/05/javascript-snippet-convert-number-to-column-name/
+ * Takes a positive integer and returns the corresponding column name.
+ * @param {number} num  The positive integer to convert to a column name.
+ * @return {string}  The column name.
+ */
+function toColumnName(num) {
+    num++;
+    for (var ret = '', a = 1, b = 26; (num -= a) >= 0; a = b, b *= 26) {
+        ret = String.fromCharCode(parseInt((num % b) / a) + 97) + ret;
+    }
+    return ret;
+}
+
+/**
  * Constructor for a 3d vector
  * @param vector Vector formatted as object {x: xValue, y: yValue, z; zValue}
  * @param color Color as hex number
@@ -11,8 +25,8 @@ var Vector3 = function(vector, color, start, id) {
     this.color = color || 0x0;
     this.start = (typeof start === "undefined") ? {x: 0, y: 0, z: 0} : start;
 
-    this.id = id;
-
+    this.id = toColumnName(id);
+    console.log(id, this.id);
 
     var from = new THREE.Vector3(this.start.x, this.start.y, this.start.z);
     this.direction = new THREE.Vector3(this.vector.x, this.vector.y, this.vector.z);

@@ -59,7 +59,7 @@ document.getElementById("addA").onclick = function() {
                 line.name = "function";
                 sceneManager.scene.add(line);
             }
-            sceneManager.set(0, values);
+            sceneManager.set("a", values);
 
         }
         lastValues = values;

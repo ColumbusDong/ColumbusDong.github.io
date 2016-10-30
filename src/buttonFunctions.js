@@ -37,7 +37,7 @@ function newComponent() {
 	}
 	var newVector = new Vector3({x:newX, y:newY, z:newZ});
 	sceneManager.add( newVector );
-	linePrint( "v" + (sceneManager.count - 1) + " = <" + newX + ", " + newY + ", " + newZ + ">");
+	linePrint( "v" + newVector.id + " = <" + newX + ", " + newY + ", " + newZ + ">");
 	refresh( sceneManager.list );
 	sceneManager.render();
 
@@ -69,7 +69,7 @@ function newAngle() {
 	}
 	var newVector = new Vector3( {x:newX, y:newY, z:newZ} );
 	sceneManager.add( newVector );
-	linePrint( "v" + (sceneManager.count - 1) + " = <" + newX + ", " + newY + ", " + newZ + ">");
+	linePrint( "v" + newVector.id + " = <" + newX + ", " + newY + ", " + newZ + ">");
 	refresh( sceneManager.list );
 }
 
@@ -101,7 +101,6 @@ function add() {
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
-
 	var newVector = Vector3.add( highlighted[0], highlighted[1], 0x000000 );
 	sceneManager.add( newVector );
 	linePrint( "v" + highlighted[0].id + " + v" + highlighted[1].id + " = v" + newVector.id );

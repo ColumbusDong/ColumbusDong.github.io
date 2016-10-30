@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vectors</title>
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+   <div id="guiId">
+     <div class="margin">
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mred posL">
+                           <span class="white f20">X</span>
+                        </button>
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mblue posL">
+                        <span class="white f20">Y</span>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mgreen posL">
+                        <span class="white f20">Z</span>
+                    </button>
+                </div>
+      <div class="margin">
+       <!-- The textfield x -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
+           <label class="mdl-textfield__label" for="xC">x</label>
+       </div>
+       <!-- The textfield y -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" id="yC">
+           <label class="mdl-textfield__label" for="yC">y</label>
+       </div>
+       <!-- The textfield z -->
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+           <input class="mdl-textfield__input" type="text" id="zC">
+           <label class="mdl-textfield__label" for="zC">z</label>
+           <!-- Button Add Component-->
+           <div>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addC" onclick="newComponent()">
+                   <div class="white">Add</div>
+               </button>
+           </div>
+       </div>
+
+       </div>
+
+       <!-- Entering angles -->
+       <div class="margin">
+           <!-- The textfield r -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="rA">
+               <label class="mdl-textfield__label" for="rA">r</label>
+           </div>
+           <!-- The textfield θ -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" id="tA">
+               <label class="mdl-textfield__label" for="tA">θ</label>
+           </div>
+           <!-- The textfield Φ -->
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+               <input class="mdl-textfield__input" type="text" id="pA">
+               <label class="mdl-textfield__label" for="pA">Φ</label>
+               <!-- Button Add Component-->
+               <div>
+                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent white" id="addA" onclick="newAngle()">
+                       <div class="white"> Add</div>
+                   </button>
+               </div>
+           </div>
+
+       </div>
+
+            <input type = "text" name = "equation" id="equation">
+            <input type = "button" value = "Submit" onclick="evaluateExp()">
+
+       <!-- Vector List -->
+       <div class="margin posText">
+           Vector List:
+           <br><select id="vectorOption" size="7" multiple></select>
+
+           <div class="mdl-textfield mdl-js-textfield" style="width: 95%">
+               <textarea readonly class="mdl-textfield__input" type="text" rows= "2" id="output"></textarea>
+           </div>
+       </div>
+
+       <!-- View -->
+       <div class="margin">
+          View:
+           <hr>
+
+           <!-- Component Form Button -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="componentF" onclick="setComponent()">
+               <div class="white">Component Form</div>
+           </button>
+
+           <!-- Angle Form Buton -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="AngleF" onclick="setAngle()">
+               <div class="white">Angle Form</div>
+           </button>
+
+           <!-- Degrees Button -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="degree" onclick="setDegrees()">
+               <div class="white">Degree</div>
+           </button>
+
+           <!-- Radians Button -->
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="rads" onclick="setRadian()">
+               <div class="white">Rads</div>
+           </button>
+
+
+
+       </div>
+       <br><br><br><br><br>
+        <!-- Select One Vector -->
+        <div class="margin">
+            Select One Vector:
+            <hr>
+            <!-- 1st Row Buttons -->
+            <!-- Button _Remove-->
+
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="remove" onclick="remove()">
+                <div class="white">Remove</div>
+            </button>
+
+
+            <!-- Button _Magnitude-->
+
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="magnitude" onclick="magnitude()">
+                <div class="white">Magnitude</div>
+            </button>
+
+        </div>
+       <br><br><br>
+       <!-- Select two Vectors -->
+       <div class="margin">
+           Select Two Vectors:
+           <hr>
+
+
+           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="angle" onclick="angle()">
+               <div class="white">Angle</div>
+           </button>
+
+       </div>
+
+
+
+
+
+   </div>
+
+    <div  class="grid" id="gridId">
+        <!-- Grid -->
+    </div >
+    <script src="../three/three.min.js"></script>
+    <script src="../three/OrbitControls.js"></script>
+    <script src="../src/Stack.js"></script>
+    <script src="../src/Queue.js"></script>
+    <script src="../src/parse.js"></script>
+
+    <script src="../three/functions.js"></script>
+    <script src="../src/SceneManager.js"></script>
+    <script src="../src/vector3.js"></script>
+    <script src="../src/vList.js"></script>
+    <script src="../src/buttonFunctions.js"></script>
+    <script>
+        function evaluateExp() {
+            var string = document.getElementById("equation").value;
+            var postfix = shunt(string);
+
+            var stack = [];
+            for(var i = 0; i < postfix.length; i++) {
+                if(postfix[i].isVector()) {
+                    postfix[i] = sceneManager.get(postfix[i].txt.substring(1));
+                } else if(postfix[i].type === 5) {
+                    postfix[i] = parseFloat(postfix[i].txt, 10);
+                }
+            }
+
+
+            console.log(postfix);
+
+            for(var i = 0; i < postfix.length; i++) {
+                var tok = postfix[i]
+                if(tok instanceof Vector3 || typeof tok === "number") {
+                    stack.push(tok);
+                } else if(tok.type === 4) {
+                    if(tok.txt === "+") {
+                        stack.push(Vector3.add(stack.pop(), stack.pop()));
+                    } else if(tok.txt === "-") {
+                        if(tok.operands === 1) {
+                            var operand = stack.pop();
+                            if(operand instanceof Vector3) {
+                                stack.push(Vector3.multiply(operand, -1));
+                            } else if(typeof operand === "number") {
+                                stack.push(-operand);
+                            }
+                        } else {
+                            var right = stack.pop();
+                            var left = stack.pop();
+                            stack.push(Vector3.sub(left, right));
+                        }
+                    } else if(tok.txt === "/") {
+                        var scalar = stack.pop();
+                        var vector = stack.pop();
+                        console.log(scalar);
+                        console.log(vector);
+                        stack.push(Vector3.multiply(vector, scalar));
+                    } else if(tok.txt === "*") {
+                        var right = stack.pop();
+                        var left = stack.pop();
+                        if(right instanceof Vector3 && left instanceof Vector3) {
+                            stack.push(Vector3.dot(right, left));
+                        } else if(right instanceof Vector3 && typeof left === "number") {
+                            stack.push(Vector3.multiply(right, left));
+                        } else if(typeof right === "number" && left instanceof Vector3) {
+                            stack.push(Vector3.multiply(left, right));
+                        }
+                    } else if(tok.txt === "^") {
+                        var right = stack.pop();
+                        var left = stack.pop();
+                        stack.push(Vector3.cross(left, right));
+                    }
+                }
+            }
+
+
+
+            var result = stack.pop();
+            if(result instanceof Vector3) {
+
+                sceneManager.add(result);
+                linePrint(string + "=v" + sceneManager.list[sceneManager.list.length - 1].id);
+
+            } else if(typeof result==="number") {
+                linePrint(string+ "=" +result);
+            }
+
+            refresh(sceneManager.list);
+
+            return result;
+        }
+    </script>
+
+</body>
+</html>

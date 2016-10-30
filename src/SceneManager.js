@@ -1,3 +1,4 @@
+
 /**
  * Constructor for SceneManager. Sets up the window and initializes the renderer
  * @constructor
@@ -114,7 +115,7 @@ SceneManager.prototype.add = function(direction, color, start) {
 
     if(direction instanceof Vector3) {
         vector = direction;
-        vector.id = this.count;
+        vector.id = toColumnName(this.count);
     } else {
         color = color || 0x0;
         start = start || {

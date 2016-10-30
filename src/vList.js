@@ -94,7 +94,7 @@ function getHighlightedVecs() {
 	for(var i = 0; i < options.length; i++) {
 		var opt = options[i];
 		if(opt.selected) {
-			selected.push(sceneManager.get(parseFloat(opt.value, 10)));
+			selected.push(sceneManager.get(opt.value));
 		}
 	}
 
