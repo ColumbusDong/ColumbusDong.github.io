@@ -55,11 +55,11 @@ var xhex = 0xff0000;
 var yhex = 0x00ff00;
 var zhex = 0x0000ff;
 
-var xPosArrow = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), origin, size*1.3, xhex, size *.3, size *.1);
+var xPosArrow = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), origin, size*1.09, xhex, size *.09, size *.09);
 //var xNegArrow = new THREE.ArrowHelper(new THREE.Vector3(-1,0,0), origin, size + 2.5*step, xhex );
-var yPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), origin, size*1.3, yhex, size *.3, size *.1);
+var yPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,1,0), origin, size*1.09, yhex, size *.09, size *.09);
 //var yNegArrow = new THREE.ArrowHelper(new THREE.Vector3(0,-1,0), origin, size + 2.5*step, yhex );
-var zPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), origin, size*1.3, zhex, size *.3, size *.1);
+var zPosArrow = new THREE.ArrowHelper(new THREE.Vector3(0,0,1), origin, size*1.09, zhex, size *.09, size *.09);
 //var zNegArrow = new THREE.ArrowHelper(new THREE.Vector3(0,0,-1), origin, size + 2.5*step, zhex );
 
 //Add Arrows
