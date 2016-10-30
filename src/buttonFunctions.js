@@ -20,7 +20,7 @@ sceneManager.render = function() {
 function linePrint( str ) {
 	console.log( str + "\n" );
 	//var t = document.createTextNode( str + "\n" );
-	document.getElementById("output").value += ( str + "\n" );
+	document.getElementById("output").value = ( str + "\n" ) + document.getElementById("output").value;
 }
 
 /**
@@ -38,7 +38,7 @@ function newComponent() {
 	var newVector = new Vector3({x:newX, y:newY, z:newZ});
 	sceneManager.add( newVector );
 	linePrint( "v" + (sceneManager.count - 1) + " = <" + newX + ", " + newY + ", " + newZ + ">");
-	refresh();
+	refresh( sceneManager.list );
 	sceneManager.render();
 
 }
@@ -70,7 +70,7 @@ function newAngle() {
 	var newVector = new Vector3( {x:newX, y:newY, z:newZ} );
 	sceneManager.add( newVector );
 	linePrint( "v" + (sceneManager.count - 1) + " = <" + newX + ", " + newY + ", " + newZ + ">");
-	refresh();
+	refresh( sceneManager.list );
 }
 
 /**
@@ -83,7 +83,7 @@ function remove() {
 		return;
 	}
 	sceneManager.remove( removeID );
-	refresh();
+	refresh( sceneManager.list );
 }
 
 /**
@@ -95,7 +95,7 @@ function add() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 2 ) {
+	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to add them." );
 		return;
 	}
@@ -103,7 +103,7 @@ function add() {
 	var newVector = Vector3.add( hlList[0], hlList[1], 0x000000 );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " + v" + hlList[1].id + " = v" + newVector.id );
-	refresh();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -116,7 +116,7 @@ function subtract() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 2 ) {
+	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to subtract them." );
 		return;
 	}
@@ -124,7 +124,7 @@ function subtract() {
 	var newVector = Vector3.sub( hlList[0], hlList[1], 0x000000 );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " - v" + hlList[1].id + " = v" + newVector.id );
-	refresh();
+	refresh( sceneManager.list )();
 	return;
 }
 
@@ -137,7 +137,7 @@ function cross() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 2 ) {
+	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to take their cross product." );
 		return;
 	}
@@ -145,7 +145,7 @@ function cross() {
 	var newVector = Vector3.cross( hlList[0], hlList[1], 0x000000 );
 	sceneManager.add( newVector );
 	linePrint( "The cross product of v" + hlList[0].id + " and v" + hlList[1].id + " = v" + newVector.id );
-	refresh();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -158,7 +158,7 @@ function angle() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 2 ) {
+	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to find the angle between them." );
 		return;
 	}
@@ -166,7 +166,7 @@ function angle() {
 	var newAngle = Vector3.angleBetween( hlList[0], hlList[1] );
 	sceneManager.drawAngle( hlList[0], hlList[1] );
 	linePrint( "The angle between v" + hlList[0].id + " and v" + hlList[1].id + " is " + newAngle + "°" );
-	refresh();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -179,14 +179,14 @@ function dot() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 2 ) {
+	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to find their dot product." );
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
 	var newProduct = Vector3.dot( hlList[0], hlList[1] );
 	linePrint( "v" + hlList[0].id + " . v" + hlList[1].id + " = " + newProduct );
-	refresh();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -199,14 +199,14 @@ function magnitude() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 1 ) {
+	if ( hlList.length != 1 ) {
 		linePrint( "Select one vector at once to find its magnitude." );
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
 	var newMag = hlList[0].magnitude();
 	linePrint( "|v" + newMag + "| = " + newProduct );
-	refresh();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -219,7 +219,7 @@ function multiply() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 1 ) {
+	if ( hlList.length != 1 ) {
 		linePrint( "Select one vector at once to find its multiple with a scalar." );
 		return;
 	}
@@ -233,7 +233,7 @@ function multiply() {
 	var newVector = Vector3D.multiply( hlList[0], multNum );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " * " + multNum + " = v" + newVector.id );
-	refresh();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -246,7 +246,7 @@ function divide() {
 	// First: check current highlighted items
 	var totalList = sceneManager.list;
 	var hlList = getHighlighted( totalList );
-	if ( hlList.length() != 1 ) {
+	if ( hlList.length != 1 ) {
 		linePrint( "Select one vector at once to find its quotient with a scalar." );
 		return;
 	}
@@ -264,7 +264,7 @@ function divide() {
 	var newVector = Vector3D.multiply( hlList[0], 1 / multNum );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " / " + multNum + " = v" + newVector.id );
-	refresh();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -273,7 +273,7 @@ function divide() {
  */
 function setComponent() {
 	isComponent = true;
-	refresh();
+	refresh( sceneManager.list );
 }
 
 /**
@@ -281,7 +281,7 @@ function setComponent() {
  */
 function setAngle() {
 	isComponent = false;
-	refresh();
+	refresh( sceneManager.list );
 }
 
 /**
@@ -289,7 +289,7 @@ function setAngle() {
  */
 function setDegrees() {
 	isDegree = true;
-	refresh();
+	refresh( sceneManager.list );
 }
 
 /**
@@ -297,5 +297,5 @@ function setDegrees() {
  */
 function setRadian() {
 	isDegree = false;
-	refresh();
+	refresh( sceneManager.list );
 }

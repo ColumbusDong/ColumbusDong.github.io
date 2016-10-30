@@ -5,6 +5,7 @@
  * @returns a String with the desired output
  */
 function printComponentVector( vec3 ) {
+	console.log( vec3 );//vec3.id + "," + vec3.x + ", " + vec3.y + ", " + vec3.z + "," );
 	var outString = "v" + vec3.id + ": <" + vec3.x + ", " + vec3.y + ", " + vec3.z + ">";
 	return outString;
 }
@@ -16,6 +17,7 @@ function printComponentVector( vec3 ) {
  * @returns a String with the desired output
  */
 function printAngleVector( vec3 ) {
+	console.log( vec3 );
 	var outString = "v" + vec3.id + ": ";
 	// first, compute magnitude
 	var r = Math.sqrt( vec3.x * vec3.x + vec3.y * vec3.y + vec3.z * vec3.z );
@@ -67,6 +69,7 @@ function getHighlighted( vecList ) {
 	var vecOpt = document.getElementById("vectorOption");
 	var selectedOpts = [];
 	var options = vecOpt && vecOpt.options;
+	//console.log( options );
 	var opt;
 	for (var i=0, iLen=options.length; i<iLen; i++) {
 		opt = options[i];
@@ -76,9 +79,10 @@ function getHighlighted( vecList ) {
 	}
 	// Second, match them to vecList
 	var selectedVecs = [];
-	for ( var i = 0; i < selectedOpts.length(); i++ ) {
+	for ( var i = 0; i < selectedOpts.length; i++ ) {
 		selectedVecs.append( vecList.get( selectedOps[ i ].value ) );
 	}
+	return selectedVecs
 }
 
 /**
@@ -90,18 +94,20 @@ function getHighlighted( vecList ) {
  * @returns nothing
  */
 function refreshHighlights( vecList ) {
+	/*
 	var vecOpt = document.getElementById("vectorOption");
 	// populate all selected options list
 	var highlightedVecs = getHighlighted( vecList );
-	for ( var i in vecList.list ) {
+	for ( var i in vecList) {
 		var cur = i.arrow;
-		if ( highlightedVecs.contains( cur ) ) {
+		if ( highlightedVecs.indexOf( cur ) >= 0) {
 			cur.setLength( cur.length, cur.length, cur.length * 0.2);
 		}
 		else {
 			cur.setLength( cur.length, cur.length * 0.2, cur.length * 0.04);
 		}
 	}
+	*/
 }
 
 /**
@@ -115,19 +121,21 @@ function refreshOptionList( vecList ) {
 	// <select id="vectorOption" size="7" multiple> ... </select>
 	while( vecOpt.length > 0 )
 		vecOpt.remove(0);
-	for( var i in vecList ) {
+	//console.log( vecList )
+	for( int i = 0; i < vecList.length; i++ ) {
+		//console.log( i );
 		var newString;
-		if ( isComponent == true ) {
-			newString = printComponentVector( i );
+		if ( isComponent ) {
+			newString = printComponentVector( vecList[i] );
 		}
 		else {
-			newString = printAngleVector( i );
+			newString = printAngleVector( vecList[i] );
 		}
 		var x = document.createElement( "OPTION" );
-		x.setAttribute("value","newString");
+		x.setAttribute("value",newString);
 		var t = document.createTextNode( newString );
-		c.appendChild( t );
-		vecOpt.add( x );
+		x.appendChild( t );
+		document.getElementById("vectorOption").appendChild( x );
 	}
 }
 
@@ -135,7 +143,7 @@ function refreshOptionList( vecList ) {
  * Calls both refresh methods. 
  * @param vecList - a list of all vectors present
  */
-function refresh( vecList ) {
+function refresh( vecList  ) {
 	refreshOptionList( vecList );
 	refreshHighlights( vecList );
 }
