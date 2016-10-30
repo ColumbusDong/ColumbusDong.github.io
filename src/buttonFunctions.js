@@ -10,8 +10,9 @@ sceneManager = new SceneManager();
  * @param str to print
  */
 function linePrint( str ) {
-	// TODO implement
 	console.log( str + "\n" );
+	//var t = document.createTextNode( str + "\n" );
+	document.getElementById("output").value += ( str + "\n" );
 }
 
 /**
