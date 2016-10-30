@@ -93,6 +93,10 @@ body {
 
 }
 
+.f20{
+    font-size: 20px;
+}
+
 .posText{
     display: inline-block;
     box-sizing: border-box;
@@ -101,4 +105,19 @@ body {
     padding: 3px;
 }
 
+.mred{
+    background-color: #f44336 !important;
+}
+
+.mblue{
+    background-color: #2196F3 !important;
+}
+
+.mgreen{
+    background-color: #4CAF50 !important;
+}
+
+.posL{
+    margin-right: 15%;
+}
 

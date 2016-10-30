@@ -60,9 +60,9 @@ SceneManager.prototype.drawGrid = function(size, step) {
 
     //Make Arrows
     var origin = new THREE.Vector3(0,0,0);
-    var xhex = 0xff0000;
-    var yhex = 0x00ff00;
-    var zhex = 0x0000ff;
+    var xhex = 0xf44336;
+    var yhex = 0x4caf50;
+    var zhex = 0x2196f3;
 
     var xPosArrow = new THREE.ArrowHelper(new THREE.Vector3(1,0,0), origin, size*1.09, xhex, size *.09, size *.09);
     //var xNegArrow = new THREE.ArrowHelper(new THREE.Vector3(-1,0,0), origin, size + 2.5*step, xhex );
@@ -80,22 +80,27 @@ SceneManager.prototype.drawGrid = function(size, step) {
     //scene.add(zNegArrow);
 
     //Add Thicker X Axes
-    var xAxes = makeCylinder(.125, 2*size, 0xFF0000);
+    var xAxes = makeCylinder(.125, 2*size, xhex);
     xAxes.rotation.x = Math.PI/2;
     xAxes.rotation.z = Math.PI/2;
     this.scene.add(xAxes);
 
     //Add Thicker Y Axes
-    var yAxes = makeCylinder(.125, 2*size, 0x0000FF);
+    var yAxes = makeCylinder(.125, 2*size, zhex);
     yAxes.rotation.x = Math.PI/2;
     yAxes.rotation.y = Math.PI/2;
     this.scene.add(yAxes);
 
     //Add Thicker Z Axes
-    var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
+    var zAxes = makeCylinder(.125, 2*size, yhex);
     this.scene.add(zAxes);
+<<<<<<< HEAD
 
 };
+=======
+};
+
+>>>>>>> 60494f2dda9a1fdc4ce01e2192c11cffc165c9a9
 
 
 /**
