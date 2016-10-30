@@ -12,7 +12,7 @@ function init() {
   document.getElementById("gridId").appendChild( renderer.domElement );
 
   //Grid Dimensions
-  var size = 100;
+  var size = 40;
   var step = size*.1; //Note this is Partitions per size;
 
   //Initial Camera Position
@@ -61,19 +61,19 @@ function init() {
   //scene.add(zNegArrow);
 
   //Add Thicker X Axes
-  var xAxes = makeCylinder(.4, 2*size, 0xFF0000);
+  var xAxes = makeCylinder(.125, 2*size, 0xFF0000);
   xAxes.rotation.x = Math.PI/2;
   xAxes.rotation.z = Math.PI/2;
   scene.add(xAxes);
 
   //Add Thicker Y Axes
-  var yAxes = makeCylinder(.4, 2*size, 0x0000FF);
+  var yAxes = makeCylinder(.125, 2*size, 0x0000FF);
   yAxes.rotation.x = Math.PI/2;
   yAxes.rotation.y = Math.PI/2;
   scene.add(yAxes);
 
   //Add Thicker Z Axes
-  var zAxes = makeCylinder(.4, 2*size, 0x00FF00);
+  var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
   scene.add(zAxes);
 
   //Add Labels
