@@ -28,20 +28,24 @@
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
            <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
            <label class="mdl-textfield__label" for="xC">x</label>
+           <span class="mdl-tooltip mdl-tooltip--large" for = "xC">Enter the X Component</span>
        </div>
        <!-- The textfield y -->
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
            <input class="mdl-textfield__input" type="text" id="yC">
            <label class="mdl-textfield__label" for="yC">y</label>
+           <span class="mdl-tooltip mdl-tooltip--large" for = "yC">Enter the Y Component</span>
        </div>
        <!-- The textfield z -->
        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
            <input class="mdl-textfield__input" type="text" id="zC">
            <label class="mdl-textfield__label" for="zC">z</label>
+           <span class="mdl-tooltip mdl-tooltip--large" for = "zC">Enter the Z Component</span>
            <!-- Button Add Component-->
            <div>
                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addC" onclick="newComponent()">
                    <div class="white">Add</div>
+                   <span class="mdl-tooltip mdl-tooltip--large" for = "addC">Add Vector to Grid</span>
                </button>
            </div>
        </div>
@@ -54,20 +58,24 @@
            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
                <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="rA">
                <label class="mdl-textfield__label" for="rA">r</label>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "rA">Enter the Radius</span>
            </div>
            <!-- The textfield θ -->
            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
                <input class="mdl-textfield__input" type="text" id="tA">
                <label class="mdl-textfield__label" for="tA">θ</label>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "tA">Enter the θ(Degrees) Value</span>
            </div>
            <!-- The textfield Φ -->
            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
                <input class="mdl-textfield__input" type="text" id="pA">
                <label class="mdl-textfield__label" for="pA">Φ</label>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "pA">Enter the Φ(Degrees) Value</span>
                <!-- Button Add Component-->
                <div>
                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent white" id="addA" onclick="newAngle()">
                        <div class="white"> Add</div>
+                       <span class="mdl-tooltip mdl-tooltip--large" for = "addA">Add Vector to Grid</span>
                    </button>
                </div>
            </div>
@@ -76,11 +84,12 @@
 
             <input type = "text" name = "equation" id="equation">
             <input type = "button" value = "Submit" onclick="evaluateExp()">
-
+            <span class="mdl-tooltip mdl-tooltip--large" for = "equation">Addition: va+vb<br>Subtraction: va-vb<br>Dot Product: va*vb<br> Cross Product: va^vb<br>Scalar Multiple: 2*va</span>
        <!-- Vector List -->
        <div class="margin posText">
            Vector List:
            <br><select id="vectorOption" size="7" multiple></select>
+
 
            <div class="mdl-textfield mdl-js-textfield" style="width: 95%">
                <textarea readonly class="mdl-textfield__input" type="text" rows= "2" id="output"></textarea>
@@ -95,21 +104,25 @@
            <!-- Component Form Button -->
            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="componentF" onclick="setComponent()">
                <div class="white">Component Form</div>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "componentF">Change to Component Form</span>
            </button>
 
            <!-- Angle Form Buton -->
            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="AngleF" onclick="setAngle()">
                <div class="white">Angle Form</div>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "AngleF">Change to Polar Form</span>
            </button>
 
            <!-- Degrees Button -->
            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="degree" onclick="setDegrees()">
                <div class="white">Degree</div>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "degree">Change to Polar Form (Degrees)</span>
            </button>
 
            <!-- Radians Button -->
            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent viewPos" id="rads" onclick="setRadian()">
                <div class="white">Rads</div>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "rads">Change to Polar Form (Radians)</span>
            </button>
 
 
@@ -125,6 +138,7 @@
 
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="remove" onclick="remove()">
                 <div class="white">Remove</div>
+                <span class="mdl-tooltip mdl-tooltip--large" for = "remove">Remove Vector from Grid (One Must Be Selected)</span>
             </button>
 
 
@@ -132,6 +146,7 @@
 
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent oneVPos" id="magnitude" onclick="magnitude()">
                 <div class="white">Magnitude</div>
+                <span class="mdl-tooltip mdl-tooltip--large" for = "magnitude">Find Magnitude of Vector (One Must Be Selected)</span>
             </button>
 
         </div>
@@ -144,6 +159,7 @@
 
            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent twoVPos" id="angle" onclick="angle()">
                <div class="white">Angle</div>
+               <span class="mdl-tooltip mdl-tooltip--large" for = "angle">Find Angle Between Two Vectors (Two Must be Selected)</span>
            </button>
 
        </div>
