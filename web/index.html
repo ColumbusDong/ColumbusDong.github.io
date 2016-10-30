@@ -14,7 +14,7 @@
        <!-- Entering components -->
        <div class="margin">
        <!-- The textfield x -->
-       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
+       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF " >
            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="xC">
            <label class="mdl-textfield__label" for="xC">x</label>
        </div>
@@ -29,7 +29,7 @@
            <label class="mdl-textfield__label" for="zC">z</label>
            <!-- Button Add Component-->
            <div>
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addC">
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " id="addC">
                   <span class="white" >Add</span>
                </button>
            </div>
@@ -62,7 +62,9 @@
            </div>
 
        </div>
-
+       Vector List:
+       <hr>
+       <select id="vectorOption" size="7" multiple></select>
 
         <!-- Select One Vector -->
         <div class="margin">
@@ -173,7 +175,7 @@
 
        <!-- Vector List -->
        <div class="margin posText">
-           Vector List:
+           Output:
            <hr>
            <div class="mdl-textfield mdl-js-textfield" style="width: 95%">
                <textarea readonly class="mdl-textfield__input" type="text" rows= "5" id="output"></textarea>

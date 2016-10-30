@@ -101,4 +101,18 @@ body {
     padding: 3px;
 }
 
+#vectorOption{
+    padding-top: 10px;
+    width: 95%;
+    border: none;
+    outline: none;
+    overflow-y: auto;
+    align-self: center;
+
+}
+#vectorOption option{
+    font-size: 1.2em;
+
+}
+
 
