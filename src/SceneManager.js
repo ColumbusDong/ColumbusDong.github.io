@@ -94,7 +94,7 @@ SceneManager.prototype.drawGrid = function(size, step) {
     //Add Thicker Z Axes
     var zAxes = makeCylinder(.125, 2*size, yhex);
     this.scene.add(zAxes);
-
+};
 
 
 
