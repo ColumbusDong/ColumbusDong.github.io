@@ -15,24 +15,20 @@
     <div class="add">
         <!-- The textfield x -->
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-            <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="xC">
-            <label class="mdl-textfield__label" for="xC">x</label>
+            <input class="mdl-textfield__input" type="text" value="sin(t)" id="xt">
+            <label class="mdl-textfield__label" for="xt">x(t)</label>
         </div>
         <!-- The textfield y -->
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-            <input class="mdl-textfield__input" type="text" id="yC">
-            <label class="mdl-textfield__label" for="yC">y</label>
+            <input class="mdl-textfield__input" type="text" value="cos(t)" id="yt">
+            <label class="mdl-textfield__label" for="yt">y(t)</label>
         </div>
         <!-- The textfield z -->
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-            <input class="mdl-textfield__input" type="text" id="zC">
-            <label class="mdl-textfield__label" for="zC">z</label>
+            <input class="mdl-textfield__input" type="text" value="0.2t" id="zt">
+            <label class="mdl-textfield__label" for="zt">z(t)</label>
             <!-- Button Add Component-->
-            <div>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addC">
-                    Add
-                </button>
-            </div>
+
         </div>
 
     </div>
@@ -41,18 +37,18 @@
     <div class="add">
         <!-- The textfield r -->
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-            <input class="mdl-textfield__input" type="text" pattern="[0-9]*(.[0-9])?" id="rA">
-            <label class="mdl-textfield__label" for="rA">r</label>
+            <input class="mdl-textfield__input" type="text" value="0" id="minT">
+            <label class="mdl-textfield__label" for="minT">t min</label>
         </div>
         <!-- The textfield θ -->
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-            <input class="mdl-textfield__input" type="text" id="tA">
-            <label class="mdl-textfield__label" for="tA">θ</label>
+            <input class="mdl-textfield__input" type="text" value="2*pi" id="maxT">
+            <label class="mdl-textfield__label" for="maxT">t max</label>
         </div>
         <!-- The textfield Φ -->
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label tF" >
-            <input class="mdl-textfield__input" type="text" id="pA">
-            <label class="mdl-textfield__label" for="pA">Φ</label>
+            <input class="mdl-textfield__input" type="text" id="tStep" value="0.05">
+            <label class="mdl-textfield__label" for="tStep">t step</label>
             <!-- Button Add Component-->
             <div>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addA">
@@ -64,30 +60,23 @@
     </div>
 
 
-    <!-- Select One Vector -->
-    <div>
-        Select One Vector:
-        <hr>
-        <!-- Button _Remove-->
-        <div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn1">
-                Remove
-            </button>
-        </div>
-        <!-- Button -->
-        <div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn2">
-                Mutliply
-            </button>
-        </div>
-    </div>
+    <h4>Instructions</h4>
+    <p>
+        Enter functions of t in the input boxes, then set bounds on t and a step size to watch an animation of
+        the vector function from minT to maxT. Regular math functions, such as sin(t) and exp(t) are allowed, as are
+        constants like e and pi. To do e^t in the function boxes, type exp(t).
+    </p>
+
 </div>
 <div  class="grid" id="gridId">
     <!-- Grid -->
 </div >
 <script src="../three/three.min.js"></script>
 <script src="../three/OrbitControls.js"></script>
-<script src="../src/box.js"></script>
-
+<script src="../src/Vector3.js"></script>
+<script src="../src/SceneManager.js"></script>
+<script src="../src/CAS.min.js"></script>
+<script src="../src/vectorFunction.js"></script>
+<script></script>
 </body>
 </html>

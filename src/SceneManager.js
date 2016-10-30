@@ -1,3 +1,7 @@
+/**
+ * Constructor for SceneManager. Sets up the window and initializes the renderer
+ * @constructor
+ */
 var SceneManager = function() {
     this.width = window.innerWidth * 0.7;
     this.height = window.innerHeight;
@@ -7,7 +11,8 @@ var SceneManager = function() {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(this.width, this.height);
     this.renderer.setClearColor (0xFFFFFF, 1);
-    document.body.appendChild( this.renderer.domElement );
+    // document.body.appendChild( this.renderer.domElement );
+    document.getElementById("gridId").appendChild( this.renderer.domElement );
 
     this.list = [];
     this.count = 0;
@@ -15,21 +20,32 @@ var SceneManager = function() {
     this.camera.position.z = 5;
     this.camera.position.y = 5;
 
-
-
-    var size = 10;
-    var step = 10;
-    var gridHelper = new THREE.GridHelper(size, step);
+    this.drawGrid(10, 10);
 
     var controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     controls.target.set(0, 0, 0);
 
-    this.scene.add(gridHelper);
 
 
 };
 
+/**
+ * Draws the reference grid
+ * @param size The distance between each step
+ * @param step The number of steps
+ */
+SceneManager.prototype.drawGrid = function(size, step) {
+    var gridHelper = new THREE.GridHelper(size, step);
+    this.scene.add(gridHelper);
 
+}
+
+/**
+ * Adds a vector to the grid
+ * @param direction The direction of the vector
+ * @param color The color of the vector
+ * @param start The starting point of the vector
+ */
 SceneManager.prototype.add = function(direction, color, start) {
     var vector;
 
@@ -52,6 +68,11 @@ SceneManager.prototype.add = function(direction, color, start) {
     this.count++;
 };
 
+/**
+ * Removes a vector by its unique ID
+ * @param id
+ * @returns {boolean} Whether it successfully removed
+ */
 SceneManager.prototype.remove = function(id) {
     for(var i = 0; i < this.list.length; i++) {
         if(this.list[i].id === id) {
@@ -67,6 +88,11 @@ SceneManager.prototype.remove = function(id) {
     return false;
 };
 
+/**
+ * Gets a vector by its unique ID
+ * @param id
+ * @returns {Vector3} The vector with the specific id
+ */
 SceneManager.prototype.get = function(id) {
     for(var i = 0; i < this.list.length; i++) {
         if(this.list[i].id === id) {
@@ -75,6 +101,13 @@ SceneManager.prototype.get = function(id) {
     }
 };
 
+/**
+ * Sets the values of a vector by its ID
+ * @param id
+ * @param newVector
+ * @param newColor
+ * @param newStart
+ */
 SceneManager.prototype.set = function(id, newVector, newColor, newStart) {
     var vector = this.get(id);
     vector.set(newVector, newColor, newStart);
@@ -85,6 +118,11 @@ SceneManager.prototype.set = function(id, newVector, newColor, newStart) {
     vector.angles = [];
 };
 
+/**
+ * Draws the angle between two vectors
+ * @param id1 The ID of the first vector
+ * @param id2 The ID of the second vector
+ */
 SceneManager.prototype.drawAngle = function(id1, id2) {
     //stemkoski.github.io/Three.js/Earth-LatLon.html
 
