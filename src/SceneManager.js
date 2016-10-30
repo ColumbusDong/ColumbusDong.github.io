@@ -95,7 +95,7 @@ SceneManager.prototype.drawGrid = function(size, step) {
     var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
     this.scene.add(zAxes);
 
-
+};
 
 
 /**

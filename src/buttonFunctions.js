@@ -77,12 +77,15 @@ function newAngle() {
  * Removes the given key from the sceneManager
  */
 function remove() {
-	var removeID = parseInt( document.getElementById("???????") );
-	if ( removeID != removeID ) {
-		linePrint( "Please enter a valid vector number to remove." );
+
+	var highlighted  = getHighlightedVecs();
+	if(highlighted.length != 1) {
+		linePrint("Select one vector to remove it.");
 		return;
 	}
-	sceneManager.remove( removeID );
+
+
+	sceneManager.remove( highlighted[0].id );
 	refresh( sceneManager.list );
 }
 
@@ -92,17 +95,16 @@ function remove() {
  * a new vector, and adds it to the scene, broadcasting that it has done so.
  */
 function add() {
-	// First: check current highlighted items
-	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
-	if ( hlList.length != 2 ) {
+	var highlighted = getHighlightedVecs();
+	if ( highlighted.length != 2 ) {
 		linePrint( "Select two vectors at once to add them." );
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
-	var newVector = Vector3.add( hlList[0], hlList[1], 0x000000 );
+
+	var newVector = Vector3.add( highlighted[0], highlighted[1], 0x000000 );
 	sceneManager.add( newVector );
-	linePrint( "v" + hlList[0].id + " + v" + hlList[1].id + " = v" + newVector.id );
+	linePrint( "v" + highlighted[0].id + " + v" + highlighted[1].id + " = v" + newVector.id );
 	refresh( sceneManager.list );
 	return;
 }
@@ -114,8 +116,7 @@ function add() {
  */
 function subtract() {
 	// First: check current highlighted items
-	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
+	var hlList = getHighlightedVecs();
 	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to subtract them." );
 		return;
@@ -124,7 +125,7 @@ function subtract() {
 	var newVector = Vector3.sub( hlList[0], hlList[1], 0x000000 );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " - v" + hlList[1].id + " = v" + newVector.id );
-	refresh( sceneManager.list )();
+	refresh( sceneManager.list );
 	return;
 }
 
@@ -135,8 +136,7 @@ function subtract() {
  */
 function cross() {
 	// First: check current highlighted items
-	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
+	var hlList = getHighlightedVecs() ;
 	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to take their cross product." );
 		return;
@@ -156,15 +156,14 @@ function cross() {
  */
 function angle() {
 	// First: check current highlighted items
-	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
+	var hlList = getHighlightedVecs();
 	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to find the angle between them." );
 		return;
 	}
 	// if correct number of things are highlighted, do operation.
 	var newAngle = Vector3.angleBetween( hlList[0], hlList[1] );
-	sceneManager.drawAngle( hlList[0], hlList[1] );
+	sceneManager.drawAngle( hlList[0].id, hlList[1].id );
 	linePrint( "The angle between v" + hlList[0].id + " and v" + hlList[1].id + " is " + newAngle + "°" );
 	refresh( sceneManager.list );
 	return;
@@ -177,8 +176,7 @@ function angle() {
  */
 function dot() {
 	// First: check current highlighted items
-	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
+	var hlList = getHighlightedVecs();
 	if ( hlList.length != 2 ) {
 		linePrint( "Select two vectors at once to find their dot product." );
 		return;
@@ -217,8 +215,7 @@ function magnitude() {
  */
 function multiply() {
 	// First: check current highlighted items
-	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
+	var hlList = getHighlightedVecs();
 	if ( hlList.length != 1 ) {
 		linePrint( "Select one vector at once to find its multiple with a scalar." );
 		return;
@@ -230,7 +227,7 @@ function multiply() {
 		return;
 	}
 	// Finally: do operation
-	var newVector = Vector3D.multiply( hlList[0], multNum );
+	var newVector = Vector3.multiply( hlList[0], multNum );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " * " + multNum + " = v" + newVector.id );
 	refresh( sceneManager.list );
@@ -244,8 +241,7 @@ function multiply() {
  */
 function divide() {
 	// First: check current highlighted items
-	var totalList = sceneManager.list;
-	var hlList = getHighlighted( totalList );
+	var hlList = getHighlightedVecs();
 	if ( hlList.length != 1 ) {
 		linePrint( "Select one vector at once to find its quotient with a scalar." );
 		return;
@@ -261,7 +257,7 @@ function divide() {
 		return;
 	}
 	// Finally: do operation
-	var newVector = Vector3D.multiply( hlList[0], 1 / multNum );
+	var newVector = Vector3.multiply( hlList[0], 1 / multNum );
 	sceneManager.add( newVector );
 	linePrint( "v" + hlList[0].id + " / " + multNum + " = v" + newVector.id );
 	refresh( sceneManager.list );

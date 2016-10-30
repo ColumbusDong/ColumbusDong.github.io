@@ -73,8 +73,8 @@ function getHighlighted( vecList ) {
 	//console.log(selectedOpts);
 	for (var i=0, iLen=options.length; i<iLen; i++) {
 		opt = options[i];
-	if (opt.selected) {
-		selectedOpts.push(opt.value);
+		if (opt.selected) {
+			selectedOpts.push(opt.value);
 	    }
 	}
 	//console.log(selectedOpts);
@@ -83,7 +83,22 @@ function getHighlighted( vecList ) {
 	for ( var i = 0; i < selectedOpts.length; i++ ) {
 		selectedVecs.push( vecList[ selectedOpts[ i ].value ] );
 	}
-	return selectedOpts
+	return selectedOpts;
+}
+
+function getHighlightedVecs() {
+	var options = document.getElementById("vectorOption");
+	var selected = [];
+	var options = options && options.options;
+
+	for(var i = 0; i < options.length; i++) {
+		var opt = options[i];
+		if(opt.selected) {
+			selected.push(sceneManager.get(parseFloat(opt.value, 10)));
+		}
+	}
+
+	return selected;
 }
 
 /**
@@ -132,7 +147,7 @@ function refreshOptionList( vecList ) {
 			newString = printAngleVector( vecList[ i ] );
 		}
 		var x = document.createElement( "OPTION" );
-		x.setAttribute("value","newString");
+		x.setAttribute("value", "" + vecList[i].id);
 		var t = document.createTextNode( newString );
 		x.appendChild( t );
 		vecOpt.add( x );

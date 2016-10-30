@@ -74,8 +74,8 @@ Vector3.prototype.setStart = function(newStart) {
  * Calculates the magnitude of the vector
  * @returns {number} magnitude
  */
-Vector3.magnitude = function( ths ) {
-    return Math.sqrt(ths.vector.x * ths.vector.x + ths.vector.y * ths.vector.y + ths.vector.z * ths.vector.z);
+Vector3.prototype.magnitude = function() {
+    return Math.sqrt(this.vector.x * this.vector.x + this.vector.y * this.vector.y + this.vector.z * this.vector.z);
 };
 
 /**
@@ -165,11 +165,14 @@ Vector3.angleBetween = function(vector1, vector2) {
  */
 Vector3.multiply = function(vector, scalar, color) {
     var color = (typeof color === "undefined") ? 0x0 : color;
-    return new Vector3({
-        x: vector.x * scalar,
-        y: vector.y * scalar,
-        z: vector.z * scalar
-    }, color, this.start);
+
+    var scaledVector = {
+        x: vector.vector.x * scalar,
+        y: vector.vector.y * scalar,
+        z: vector.vector.z * scalar
+    };
+    console.log(scaledVector);
+    return new Vector3(scaledVector, color);
 }
 
 
