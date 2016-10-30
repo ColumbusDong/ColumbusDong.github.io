@@ -12,7 +12,6 @@ body {
     display: block;
     width: 65%;
     height: 100%;
-    z-index: 1;
 }
 
 #guiId{
@@ -198,4 +197,12 @@ body {
     margin-top: 5%;
     float: right;
     top: 80%;
+}
+
+.home{
+    right: 1.5%;
+    bottom:3%;
+    z-index: 1;
+    position: fixed;
+    opacity: 0.7;
 }
