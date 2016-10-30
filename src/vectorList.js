@@ -64,6 +64,7 @@ function printAngleVector( vec3 ) {
  */
 function getHighlighted( vecList ) {
 	// First, find all selected options
+	var vecOpt = document.getElementById("vectorOption");
 	var selectedOpts = [];
 	var options = vecOpt && vecOpt.options;
 	var opt;
@@ -109,7 +110,7 @@ function refreshHighlights( vecList ) {
  * @param inComponent - boolean. True if vectors are to be listed in component form,
  * 						false if they should be listed in angle form
  */
-function refreshOptionList( vecList, inComponent ) {
+function refreshOptionList( vecList ) {
 	var vecOpt = document.getElementById("vectorOption");
 	// <select id="vectorOption" size="7" multiple> ... </select>
 	while( vecOpt.length > 0 )
@@ -132,7 +133,9 @@ function refreshOptionList( vecList, inComponent ) {
 
 /**
  * Calls both refresh methods. 
+ * @param vecList - a list of all vectors present
  */
-function refresh() {
-	// TODO
+function refresh( vecList ) {
+	refreshOptionList( vecList );
+	refreshHighlights( vecList );
 }
