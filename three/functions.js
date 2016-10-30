@@ -14,7 +14,8 @@ function makeTextSprite( message, parameters )
 	if ( parameters === undefined ) parameters = {};
 
 	var fontface = parameters["fontface"] || "Helvetica";
-	var fontsize = parameters["fontsize"] || 40;
+	var fontsize = parameters["fontsize"] || 20;
+  var scaleSize = parameters["scale"] || 20;
 	var canvas = document.createElement('canvas');
 	var context = canvas.getContext('2d');
 	context.font = fontsize + "px " + fontface;
@@ -35,6 +36,6 @@ function makeTextSprite( message, parameters )
 
 	var spriteMaterial = new THREE.SpriteMaterial({ map: texture, useScreenCoordinates: false});
 	var sprite = new THREE.Sprite( spriteMaterial );
-	sprite.scale.set(40, 40, 40);
+	sprite.scale.set(scaleSize, scaleSize, scaleSize);
 	return sprite;
 }
