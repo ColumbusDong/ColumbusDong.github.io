@@ -2,7 +2,7 @@
  * Constructor for SceneManager. Sets up the window and initializes the renderer
  * @constructor
  */
-var SceneManager = function() {
+var SceneManager = function(size, step) {
     this.list = [];
     this.count = 0;
     var width = window.innerWidth * 0.7;
@@ -14,8 +14,8 @@ var SceneManager = function() {
     renderer.setSize(width, height);
     renderer.setClearColor (0xFFFFFF, 1);
     document.getElementById("gridId").appendChild( renderer.domElement );
-    var size = 40;
-    var step = size * 0.1;
+    var size = size || 10;
+    var step = step || size * 0.1;
     this.drawGrid(size, step)
     //Initial Camera Position
     camera.position.x = size;
@@ -95,18 +95,21 @@ SceneManager.prototype.drawGrid = function(size, step) {
     var zAxes = makeCylinder(.125, 2*size, 0x00FF00);
     this.scene.add(zAxes);
 
-    //Add Labels
-    var xLabel = makeTextSprite("X-Axis", {fontsize: .4*size, scale: .4*size});
-    xLabel.position.set(size, 0, 0);
-    this.scene.add(xLabel);
+    // //Add Labels
+    // var xLabel = makeTextSprite("X-Axis", {fontsize: size, scale: 10});
+    // xLabel.position.set(size, 0, 0);
+    // this.scene.add(xLabel);
+    //
+    // var zLabel = makeTextSprite("Z-Axis", {fontsize: size, scale: 10});
+    // zLabel.position.set(0, size, 0);
+    // this.scene.add(zLabel);
+    //
+    // var yLabel = makeTextSprite("Y-Axis", {fontsize: size, scale: 10});
+    // yLabel.position.set(5, -5, size);
+    // this.scene.add(yLabel);
 
-    var zLabel = makeTextSprite("Z-Axis", {fontsize: .4*size, scale: .4*size});
-    zLabel.position.set(0, size, 0);
-    this.scene.add(zLabel);
 
-    var yLabel = makeTextSprite("Y-Axis", {fontsize: .4*size, scale: .4*size});
-    yLabel.position.set(0, 0, size);
-    this.scene.add(yLabel);
+
 }
 
 /**

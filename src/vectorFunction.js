@@ -1,7 +1,6 @@
 
-var sceneManager = new SceneManager();
+var sceneManager = new SceneManager(10, 10);
 var req = 0;
-
 document.getElementById("addA").onclick = function() {
     cancelAnimationFrame(req);
 
